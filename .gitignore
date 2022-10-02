@@ -1,0 +1,9 @@
+reports/*
+/reports
+fastlane/report.xml
+Gemfile.lock
+Package.resolved
+DerivedData/*
+/DerivedData
+.DS_Store
+Cloud-Manager.xcodeproj/project.xcworkspace/xcuserdata/murad.xcuserdatad/UserInterfaceState.xcuserstate

@@ -1,0 +1,16 @@
+input_dir: ./
+output_dir: ./Generated/
+
+xcassets:
+  inputs: 
+   - Assets/Icons.xcassets
+  outputs:
+   templateName: swift5
+   output: XCAssets+Generated.swift
+
+fonts:
+  inputs:
+   - Fonts/
+  outputs:
+   templateName: swift5
+   output: Fonts+Generated.swift

@@ -1,0 +1,903 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E402D3828CCED5C0029AA8F /* DomainToRemoteMappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E402D3728CCED5C0029AA8F /* DomainToRemoteMappers.swift */; };
+		2E6DE27028DB69DB00F272B4 /* DropboxRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE26F28DB69DB00F272B4 /* DropboxRepository.swift */; };
+		2EC043E328E356F900B878D4 /* UploadProgressRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC043E228E356F900B878D4 /* UploadProgressRemoteDTO.swift */; };
+		2EC043E528E358DD00B878D4 /* RemoteToDomainMappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC043E428E358DD00B878D4 /* RemoteToDomainMappers.swift */; };
+		FA045F4528C1184A00A90DAA /* GoogleDriveFileLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA045F4428C1184A00A90DAA /* GoogleDriveFileLocalDTO.swift */; };
+		FA045F4728C1190200A90DAA /* GoogleDriveFileRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA045F4628C1190200A90DAA /* GoogleDriveFileRemoteDTO.swift */; };
+		FA045F4928C1196E00A90DAA /* GoogleDriveFileRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA045F4828C1196E00A90DAA /* GoogleDriveFileRemoteDataSourceProtocol.swift */; };
+		FA045F4B28C11A8100A90DAA /* GoogleDriveFileRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA045F4A28C11A8100A90DAA /* GoogleDriveFileRemoteDataSource.swift */; };
+		FA045F4D28C120FE00A90DAA /* GoogleDriveFileLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA045F4C28C120FD00A90DAA /* GoogleDriveFileLocalDataSourceProtocol.swift */; };
+		FA045F4F28C121DC00A90DAA /* GoogleDriveFileLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA045F4E28C121DC00A90DAA /* GoogleDriveFileLocalDataSource.swift */; };
+		FA04604B28C37EA200A90DAA /* ConnectGoogleDriveRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04604A28C37EA200A90DAA /* ConnectGoogleDriveRepo.swift */; };
+		FA04605C28C4AA7800A90DAA /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = FA04605B28C4AA7800A90DAA /* GoogleAPIClientForRESTCore */; };
+		FA04605E28C4AA7800A90DAA /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = FA04605D28C4AA7800A90DAA /* GoogleAPIClientForREST_Drive */; };
+		FA04606F28C5004100A90DAA /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04606E28C5004100A90DAA /* Array+Ext.swift */; };
+		FA09C34228BB4D340000E2D2 /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = FA09C34128BB4D340000E2D2 /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA09C38428BB4D880000E2D2 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA09C38328BB4D880000E2D2 /* Domain.framework */; };
+		FA09C38528BB4D880000E2D2 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA09C38328BB4D880000E2D2 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA09C3CA28BB8C0B0000E2D2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FA09C3C928BB8C0B0000E2D2 /* Realm */; };
+		FA09C3CC28BB8C0B0000E2D2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA09C3CB28BB8C0B0000E2D2 /* RealmSwift */; };
+		FA09C3D728BB942A0000E2D2 /* DataAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09C3D628BB942A0000E2D2 /* DataAssembly.swift */; };
+		FA09C3DA28BB94510000E2D2 /* GoogleDriveRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09C3D928BB94510000E2D2 /* GoogleDriveRepository.swift */; };
+		FA381B1728C66FF500173499 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FA381B1628C66FF500173499 /* GoogleSignIn */; };
+		FA381B1F28C69A2900173499 /* LocalToDomainMappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B1E28C69A2900173499 /* LocalToDomainMappers.swift */; };
+		FA381B4A28CA8FB200173499 /* GoogleDriveInfoRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B4928CA8FB200173499 /* GoogleDriveInfoRemoteDTO.swift */; };
+		FA381B4C28CA8FC200173499 /* GoogleDriveInfoLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B4B28CA8FC200173499 /* GoogleDriveInfoLocalDTO.swift */; };
+		FA381B4E28CA901200173499 /* RemoteToLocalMappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B4D28CA901200173499 /* RemoteToLocalMappers.swift */; };
+		FA3914BD28E209F000B04CDD /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3914BC28E209F000B04CDD /* DataTests.swift */; };
+		FA4E5AE528E799D700AD857B /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = FA4E5AE428E799D700AD857B /* Reachability */; };
+		FA762D0028D916FB0051BEC3 /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762CFF28D916FB0051BEC3 /* URL+Ext.swift */; };
+		FA762D0328D91BED0051BEC3 /* GoogleDrivePermissionLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762D0228D91BED0051BEC3 /* GoogleDrivePermissionLocalDTO.swift */; };
+		FA762D0528D91BFD0051BEC3 /* GoogleDrivePermissionRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762D0428D91BFD0051BEC3 /* GoogleDrivePermissionRemoteDTO.swift */; };
+		FAA3DAF328BE234B00F17548 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA09C33E28BB4D340000E2D2 /* Data.framework */; platformFilter = ios; };
+		FAA7FEA928DA5BD90053FD0A /* ConnectDropboxRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEA828DA5BD90053FD0A /* ConnectDropboxRepo.swift */; };
+		FAA7FECA28DB49B10053FD0A /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = FAA7FEC928DB49B10053FD0A /* SwiftyDropbox */; };
+		FAA7FED928DBC8680053FD0A /* DropboxFileRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FED828DBC8680053FD0A /* DropboxFileRemoteDataSourceProtocol.swift */; };
+		FAA7FEDB28DBC8950053FD0A /* DropboxFileRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEDA28DBC8950053FD0A /* DropboxFileRemoteDataSource.swift */; };
+		FAA7FEE028DBC99C0053FD0A /* DropboxInfoRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEDF28DBC99C0053FD0A /* DropboxInfoRemoteDTO.swift */; };
+		FAA7FEE228DBC9BE0053FD0A /* DropboxInfoLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEE128DBC9BE0053FD0A /* DropboxInfoLocalDTO.swift */; };
+		FAA7FEE928DBCEF50053FD0A /* DropboxFileLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEE828DBCEF50053FD0A /* DropboxFileLocalDataSourceProtocol.swift */; };
+		FAA7FEEB28DBCF010053FD0A /* DropboxFileLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEEA28DBCF010053FD0A /* DropboxFileLocalDataSource.swift */; };
+		FAA7FEED28DBCF660053FD0A /* DropboxFileRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEEC28DBCF660053FD0A /* DropboxFileRemoteDTO.swift */; };
+		FAA7FEEF28DBCF700053FD0A /* DropboxFileLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEEE28DBCF700053FD0A /* DropboxFileLocalDTO.swift */; };
+		FAA7FEF528DCD7360053FD0A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEF428DCD7360053FD0A /* String+Ext.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAA3DAF428BE234B00F17548 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA09C33528BB4D340000E2D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA09C33D28BB4D340000E2D2;
+			remoteInfo = Data;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA09C38628BB4D880000E2D2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FA09C38528BB4D880000E2D2 /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2E402D3728CCED5C0029AA8F /* DomainToRemoteMappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainToRemoteMappers.swift; sourceTree = "<group>"; };
+		2E6DE26F28DB69DB00F272B4 /* DropboxRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxRepository.swift; sourceTree = "<group>"; };
+		2EC043E228E356F900B878D4 /* UploadProgressRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProgressRemoteDTO.swift; sourceTree = "<group>"; };
+		2EC043E428E358DD00B878D4 /* RemoteToDomainMappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteToDomainMappers.swift; sourceTree = "<group>"; };
+		FA045F4428C1184A00A90DAA /* GoogleDriveFileLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveFileLocalDTO.swift; sourceTree = "<group>"; };
+		FA045F4628C1190200A90DAA /* GoogleDriveFileRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveFileRemoteDTO.swift; sourceTree = "<group>"; };
+		FA045F4828C1196E00A90DAA /* GoogleDriveFileRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveFileRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		FA045F4A28C11A8100A90DAA /* GoogleDriveFileRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveFileRemoteDataSource.swift; sourceTree = "<group>"; };
+		FA045F4C28C120FD00A90DAA /* GoogleDriveFileLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveFileLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		FA045F4E28C121DC00A90DAA /* GoogleDriveFileLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveFileLocalDataSource.swift; sourceTree = "<group>"; };
+		FA04604A28C37EA200A90DAA /* ConnectGoogleDriveRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectGoogleDriveRepo.swift; sourceTree = "<group>"; };
+		FA04606E28C5004100A90DAA /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		FA09C33E28BB4D340000E2D2 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA09C34128BB4D340000E2D2 /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		FA09C38328BB4D880000E2D2 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA09C3D628BB942A0000E2D2 /* DataAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssembly.swift; sourceTree = "<group>"; };
+		FA09C3D928BB94510000E2D2 /* GoogleDriveRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveRepository.swift; sourceTree = "<group>"; };
+		FA381B1E28C69A2900173499 /* LocalToDomainMappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalToDomainMappers.swift; sourceTree = "<group>"; };
+		FA381B4928CA8FB200173499 /* GoogleDriveInfoRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveInfoRemoteDTO.swift; sourceTree = "<group>"; };
+		FA381B4B28CA8FC200173499 /* GoogleDriveInfoLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveInfoLocalDTO.swift; sourceTree = "<group>"; };
+		FA381B4D28CA901200173499 /* RemoteToLocalMappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteToLocalMappers.swift; sourceTree = "<group>"; };
+		FA3914BC28E209F000B04CDD /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		FA762CFF28D916FB0051BEC3 /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
+		FA762D0228D91BED0051BEC3 /* GoogleDrivePermissionLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDrivePermissionLocalDTO.swift; sourceTree = "<group>"; };
+		FA762D0428D91BFD0051BEC3 /* GoogleDrivePermissionRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDrivePermissionRemoteDTO.swift; sourceTree = "<group>"; };
+		FAA3DAEF28BE234B00F17548 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA7FEA828DA5BD90053FD0A /* ConnectDropboxRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDropboxRepo.swift; sourceTree = "<group>"; };
+		FAA7FED828DBC8680053FD0A /* DropboxFileRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		FAA7FEDA28DBC8950053FD0A /* DropboxFileRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileRemoteDataSource.swift; sourceTree = "<group>"; };
+		FAA7FEDF28DBC99C0053FD0A /* DropboxInfoRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxInfoRemoteDTO.swift; sourceTree = "<group>"; };
+		FAA7FEE128DBC9BE0053FD0A /* DropboxInfoLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxInfoLocalDTO.swift; sourceTree = "<group>"; };
+		FAA7FEE828DBCEF50053FD0A /* DropboxFileLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		FAA7FEEA28DBCF010053FD0A /* DropboxFileLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileLocalDataSource.swift; sourceTree = "<group>"; };
+		FAA7FEEC28DBCF660053FD0A /* DropboxFileRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileRemoteDTO.swift; sourceTree = "<group>"; };
+		FAA7FEEE28DBCF700053FD0A /* DropboxFileLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileLocalDTO.swift; sourceTree = "<group>"; };
+		FAA7FEF428DCD7360053FD0A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA09C33B28BB4D340000E2D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA04605E28C4AA7800A90DAA /* GoogleAPIClientForREST_Drive in Frameworks */,
+				FA04605C28C4AA7800A90DAA /* GoogleAPIClientForRESTCore in Frameworks */,
+				FA09C3CC28BB8C0B0000E2D2 /* RealmSwift in Frameworks */,
+				FA09C3CA28BB8C0B0000E2D2 /* Realm in Frameworks */,
+				FA09C38428BB4D880000E2D2 /* Domain.framework in Frameworks */,
+				FA4E5AE528E799D700AD857B /* Reachability in Frameworks */,
+				FA381B1728C66FF500173499 /* GoogleSignIn in Frameworks */,
+				FAA7FECA28DB49B10053FD0A /* SwiftyDropbox in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA3DAEC28BE234B00F17548 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA3DAF328BE234B00F17548 /* Data.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E6DE26E28DB69CA00F272B4 /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FEA828DA5BD90053FD0A /* ConnectDropboxRepo.swift */,
+				2E6DE26F28DB69DB00F272B4 /* DropboxRepository.swift */,
+			);
+			path = Dropbox;
+			sourceTree = "<group>";
+		};
+		FA04606D28C5002900A90DAA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA04606E28C5004100A90DAA /* Array+Ext.swift */,
+				FA762CFF28D916FB0051BEC3 /* URL+Ext.swift */,
+				FAA7FEF428DCD7360053FD0A /* String+Ext.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FA09C33428BB4D340000E2D2 = {
+			isa = PBXGroup;
+			children = (
+				FA381B2128C69B5C00173499 /* DTOs */,
+				FA381B1D28C699E500173499 /* Mapper */,
+				FA09C3D528BB93D00000E2D2 /* DI */,
+				FA09C3D428BB93C40000E2D2 /* Repositories */,
+				FA09C3D328BB93B30000E2D2 /* Remote Data Source */,
+				FA09C3D228BB93AA0000E2D2 /* Local Data Source */,
+				FA04606D28C5002900A90DAA /* Helpers */,
+				FA09C34028BB4D340000E2D2 /* Data */,
+				FA3914BB28E209C600B04CDD /* DataTests */,
+				FA09C33F28BB4D340000E2D2 /* Products */,
+				FA09C38228BB4D880000E2D2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FA09C33F28BB4D340000E2D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA09C33E28BB4D340000E2D2 /* Data.framework */,
+				FAA3DAEF28BE234B00F17548 /* DataTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA09C34028BB4D340000E2D2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FA09C34128BB4D340000E2D2 /* Data.h */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FA09C38228BB4D880000E2D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA09C38328BB4D880000E2D2 /* Domain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA09C3D228BB93AA0000E2D2 /* Local Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FEE728DBCED60053FD0A /* Dropbox */,
+				FA09C3E028BB98040000E2D2 /* Google Drive */,
+			);
+			path = "Local Data Source";
+			sourceTree = "<group>";
+		};
+		FA09C3D328BB93B30000E2D2 /* Remote Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				FA09C3DF28BB97F30000E2D2 /* Google Drive */,
+				FAA7FED728DBC84D0053FD0A /* Dropbox */,
+			);
+			path = "Remote Data Source";
+			sourceTree = "<group>";
+		};
+		FA09C3D428BB93C40000E2D2 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FA09C3D828BB94360000E2D2 /* Google Drive */,
+				2E6DE26E28DB69CA00F272B4 /* Dropbox */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FA09C3D528BB93D00000E2D2 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				FA09C3D628BB942A0000E2D2 /* DataAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		FA09C3D828BB94360000E2D2 /* Google Drive */ = {
+			isa = PBXGroup;
+			children = (
+				FA04604A28C37EA200A90DAA /* ConnectGoogleDriveRepo.swift */,
+				FA09C3D928BB94510000E2D2 /* GoogleDriveRepository.swift */,
+			);
+			path = "Google Drive";
+			sourceTree = "<group>";
+		};
+		FA09C3DF28BB97F30000E2D2 /* Google Drive */ = {
+			isa = PBXGroup;
+			children = (
+				FA045F4828C1196E00A90DAA /* GoogleDriveFileRemoteDataSourceProtocol.swift */,
+				FA045F4A28C11A8100A90DAA /* GoogleDriveFileRemoteDataSource.swift */,
+			);
+			path = "Google Drive";
+			sourceTree = "<group>";
+		};
+		FA09C3E028BB98040000E2D2 /* Google Drive */ = {
+			isa = PBXGroup;
+			children = (
+				FA045F4C28C120FD00A90DAA /* GoogleDriveFileLocalDataSourceProtocol.swift */,
+				FA045F4E28C121DC00A90DAA /* GoogleDriveFileLocalDataSource.swift */,
+			);
+			path = "Google Drive";
+			sourceTree = "<group>";
+		};
+		FA381B1D28C699E500173499 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				FA381B1E28C69A2900173499 /* LocalToDomainMappers.swift */,
+				FA381B4D28CA901200173499 /* RemoteToLocalMappers.swift */,
+				2E402D3728CCED5C0029AA8F /* DomainToRemoteMappers.swift */,
+				2EC043E428E358DD00B878D4 /* RemoteToDomainMappers.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		FA381B2128C69B5C00173499 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FEDC28DBC9680053FD0A /* Dropbox */,
+				FA381B2228C69B7200173499 /* Google Drive */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		FA381B2228C69B7200173499 /* Google Drive */ = {
+			isa = PBXGroup;
+			children = (
+				FA381B4F28CA990100173499 /* Info */,
+				FA381B5028CA990A00173499 /* File */,
+				FA762D0128D91BCD0051BEC3 /* Permission */,
+			);
+			path = "Google Drive";
+			sourceTree = "<group>";
+		};
+		FA381B4F28CA990100173499 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				FA381B4928CA8FB200173499 /* GoogleDriveInfoRemoteDTO.swift */,
+				FA381B4B28CA8FC200173499 /* GoogleDriveInfoLocalDTO.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		FA381B5028CA990A00173499 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				FA045F4628C1190200A90DAA /* GoogleDriveFileRemoteDTO.swift */,
+				FA045F4428C1184A00A90DAA /* GoogleDriveFileLocalDTO.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		FA3914BB28E209C600B04CDD /* DataTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA3914BC28E209F000B04CDD /* DataTests.swift */,
+			);
+			path = DataTests;
+			sourceTree = "<group>";
+		};
+		FA762D0128D91BCD0051BEC3 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				FA762D0228D91BED0051BEC3 /* GoogleDrivePermissionLocalDTO.swift */,
+				FA762D0428D91BFD0051BEC3 /* GoogleDrivePermissionRemoteDTO.swift */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		FAA7FED728DBC84D0053FD0A /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FED828DBC8680053FD0A /* DropboxFileRemoteDataSourceProtocol.swift */,
+				FAA7FEDA28DBC8950053FD0A /* DropboxFileRemoteDataSource.swift */,
+			);
+			path = Dropbox;
+			sourceTree = "<group>";
+		};
+		FAA7FEDC28DBC9680053FD0A /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FEDD28DBC96F0053FD0A /* Info */,
+				FAA7FEDE28DBC9750053FD0A /* File */,
+			);
+			path = Dropbox;
+			sourceTree = "<group>";
+		};
+		FAA7FEDD28DBC96F0053FD0A /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FEDF28DBC99C0053FD0A /* DropboxInfoRemoteDTO.swift */,
+				FAA7FEE128DBC9BE0053FD0A /* DropboxInfoLocalDTO.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		FAA7FEDE28DBC9750053FD0A /* File */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FEEC28DBCF660053FD0A /* DropboxFileRemoteDTO.swift */,
+				2EC043E228E356F900B878D4 /* UploadProgressRemoteDTO.swift */,
+				FAA7FEEE28DBCF700053FD0A /* DropboxFileLocalDTO.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		FAA7FEE728DBCED60053FD0A /* Dropbox */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7FEE828DBCEF50053FD0A /* DropboxFileLocalDataSourceProtocol.swift */,
+				FAA7FEEA28DBCF010053FD0A /* DropboxFileLocalDataSource.swift */,
+			);
+			path = Dropbox;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FA09C33928BB4D340000E2D2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA09C34228BB4D340000E2D2 /* Data.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FA09C33D28BB4D340000E2D2 /* Data */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA09C34528BB4D340000E2D2 /* Build configuration list for PBXNativeTarget "Data" */;
+			buildPhases = (
+				FA09C33928BB4D340000E2D2 /* Headers */,
+				FA09C33A28BB4D340000E2D2 /* Sources */,
+				FA09C33B28BB4D340000E2D2 /* Frameworks */,
+				FA09C33C28BB4D340000E2D2 /* Resources */,
+				FA09C38628BB4D880000E2D2 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Data;
+			packageProductDependencies = (
+				FA09C3C928BB8C0B0000E2D2 /* Realm */,
+				FA09C3CB28BB8C0B0000E2D2 /* RealmSwift */,
+				FA04605B28C4AA7800A90DAA /* GoogleAPIClientForRESTCore */,
+				FA04605D28C4AA7800A90DAA /* GoogleAPIClientForREST_Drive */,
+				FA381B1628C66FF500173499 /* GoogleSignIn */,
+				FAA7FEC928DB49B10053FD0A /* SwiftyDropbox */,
+				FA4E5AE428E799D700AD857B /* Reachability */,
+			);
+			productName = Data;
+			productReference = FA09C33E28BB4D340000E2D2 /* Data.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FAA3DAEE28BE234B00F17548 /* DataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAA3DAF628BE234B00F17548 /* Build configuration list for PBXNativeTarget "DataTests" */;
+			buildPhases = (
+				FAA3DAEB28BE234B00F17548 /* Sources */,
+				FAA3DAEC28BE234B00F17548 /* Frameworks */,
+				FAA3DAED28BE234B00F17548 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAA3DAF528BE234B00F17548 /* PBXTargetDependency */,
+			);
+			name = DataTests;
+			productName = DataTests;
+			productReference = FAA3DAEF28BE234B00F17548 /* DataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA09C33528BB4D340000E2D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					FA09C33D28BB4D340000E2D2 = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+					};
+					FAA3DAEE28BE234B00F17548 = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1400;
+					};
+				};
+			};
+			buildConfigurationList = FA09C33828BB4D340000E2D2 /* Build configuration list for PBXProject "Data" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA09C33428BB4D340000E2D2;
+			packageReferences = (
+				FA09C3C828BB8C0B0000E2D2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				FA04605A28C4AA7800A90DAA /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
+				FA381B1528C66FF500173499 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				FAA7FEC828DB49B10053FD0A /* XCRemoteSwiftPackageReference "SwiftyDropbox" */,
+				FA4E5AE328E799D700AD857B /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+			);
+			productRefGroup = FA09C33F28BB4D340000E2D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA09C33D28BB4D340000E2D2 /* Data */,
+				FAA3DAEE28BE234B00F17548 /* DataTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA09C33C28BB4D340000E2D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA3DAED28BE234B00F17548 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA09C33A28BB4D340000E2D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA7FEEF28DBCF700053FD0A /* DropboxFileLocalDTO.swift in Sources */,
+				FA381B1F28C69A2900173499 /* LocalToDomainMappers.swift in Sources */,
+				FAA7FEED28DBCF660053FD0A /* DropboxFileRemoteDTO.swift in Sources */,
+				FAA7FEF528DCD7360053FD0A /* String+Ext.swift in Sources */,
+				2E402D3828CCED5C0029AA8F /* DomainToRemoteMappers.swift in Sources */,
+				2EC043E528E358DD00B878D4 /* RemoteToDomainMappers.swift in Sources */,
+				FA762D0528D91BFD0051BEC3 /* GoogleDrivePermissionRemoteDTO.swift in Sources */,
+				FA045F4528C1184A00A90DAA /* GoogleDriveFileLocalDTO.swift in Sources */,
+				2EC043E328E356F900B878D4 /* UploadProgressRemoteDTO.swift in Sources */,
+				2E6DE27028DB69DB00F272B4 /* DropboxRepository.swift in Sources */,
+				FA762D0328D91BED0051BEC3 /* GoogleDrivePermissionLocalDTO.swift in Sources */,
+				FAA7FEEB28DBCF010053FD0A /* DropboxFileLocalDataSource.swift in Sources */,
+				FAA7FEE928DBCEF50053FD0A /* DropboxFileLocalDataSourceProtocol.swift in Sources */,
+				FA09C3D728BB942A0000E2D2 /* DataAssembly.swift in Sources */,
+				FA381B4C28CA8FC200173499 /* GoogleDriveInfoLocalDTO.swift in Sources */,
+				FAA7FEE228DBC9BE0053FD0A /* DropboxInfoLocalDTO.swift in Sources */,
+				FA381B4A28CA8FB200173499 /* GoogleDriveInfoRemoteDTO.swift in Sources */,
+				FA045F4B28C11A8100A90DAA /* GoogleDriveFileRemoteDataSource.swift in Sources */,
+				FAA7FED928DBC8680053FD0A /* DropboxFileRemoteDataSourceProtocol.swift in Sources */,
+				FA762D0028D916FB0051BEC3 /* URL+Ext.swift in Sources */,
+				FA045F4D28C120FE00A90DAA /* GoogleDriveFileLocalDataSourceProtocol.swift in Sources */,
+				FA045F4F28C121DC00A90DAA /* GoogleDriveFileLocalDataSource.swift in Sources */,
+				FAA7FEA928DA5BD90053FD0A /* ConnectDropboxRepo.swift in Sources */,
+				FA045F4928C1196E00A90DAA /* GoogleDriveFileRemoteDataSourceProtocol.swift in Sources */,
+				FA381B4E28CA901200173499 /* RemoteToLocalMappers.swift in Sources */,
+				FA09C3DA28BB94510000E2D2 /* GoogleDriveRepository.swift in Sources */,
+				FA04606F28C5004100A90DAA /* Array+Ext.swift in Sources */,
+				FAA7FEDB28DBC8950053FD0A /* DropboxFileRemoteDataSource.swift in Sources */,
+				FAA7FEE028DBC99C0053FD0A /* DropboxInfoRemoteDTO.swift in Sources */,
+				FA045F4728C1190200A90DAA /* GoogleDriveFileRemoteDTO.swift in Sources */,
+				FA04604B28C37EA200A90DAA /* ConnectGoogleDriveRepo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAA3DAEB28BE234B00F17548 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3914BD28E209F000B04CDD /* DataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAA3DAF528BE234B00F17548 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = FA09C33D28BB4D340000E2D2 /* Data */;
+			targetProxy = FAA3DAF428BE234B00F17548 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FA09C34328BB4D340000E2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FA09C34428BB4D340000E2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FA09C34628BB4D340000E2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = D98Q77NHUS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "murad-abbasov.Data";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FA09C34728BB4D340000E2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = D98Q77NHUS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "murad-abbasov.Data";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FAA3DAF728BE234B00F17548 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D98Q77NHUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "murad-abbasov.DataTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAA3DAF828BE234B00F17548 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D98Q77NHUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "murad-abbasov.DataTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA09C33828BB4D340000E2D2 /* Build configuration list for PBXProject "Data" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA09C34328BB4D340000E2D2 /* Debug */,
+				FA09C34428BB4D340000E2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA09C34528BB4D340000E2D2 /* Build configuration list for PBXNativeTarget "Data" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA09C34628BB4D340000E2D2 /* Debug */,
+				FA09C34728BB4D340000E2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAA3DAF628BE234B00F17548 /* Build configuration list for PBXNativeTarget "DataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA3DAF728BE234B00F17548 /* Debug */,
+				FAA3DAF828BE234B00F17548 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA04605A28C4AA7800A90DAA /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.0;
+			};
+		};
+		FA09C3C828BB8C0B0000E2D2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.28.6;
+			};
+		};
+		FA381B1528C66FF500173499 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.2.0;
+			};
+		};
+		FA4E5AE328E799D700AD857B /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.0;
+			};
+		};
+		FAA7FEC828DB49B10053FD0A /* XCRemoteSwiftPackageReference "SwiftyDropbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dropbox/SwiftyDropbox.git";
+			requirement = {
+				kind = exactVersion;
+				version = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA04605B28C4AA7800A90DAA /* GoogleAPIClientForRESTCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA04605A28C4AA7800A90DAA /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForRESTCore;
+		};
+		FA04605D28C4AA7800A90DAA /* GoogleAPIClientForREST_Drive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA04605A28C4AA7800A90DAA /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Drive;
+		};
+		FA09C3C928BB8C0B0000E2D2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA09C3C828BB8C0B0000E2D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FA09C3CB28BB8C0B0000E2D2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA09C3C828BB8C0B0000E2D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		FA381B1628C66FF500173499 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA381B1528C66FF500173499 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		FA4E5AE428E799D700AD857B /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA4E5AE328E799D700AD857B /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
+		};
+		FAA7FEC928DB49B10053FD0A /* SwiftyDropbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA7FEC828DB49B10053FD0A /* XCRemoteSwiftPackageReference "SwiftyDropbox" */;
+			productName = SwiftyDropbox;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FA09C33528BB4D340000E2D2 /* Project object */;
+}

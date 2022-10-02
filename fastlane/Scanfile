@@ -1,0 +1,8 @@
+project("Cloud-Manager.xcodeproj")
+device("iPhone 13 Pro")
+
+clean(true)
+
+skip_build(false)
+
+code_coverage(true)
