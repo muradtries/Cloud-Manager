@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA09C35728BB4D540000E2D2"
-               BuildableName = "Domain.framework"
-               BlueprintName = "Domain"
-               ReferencedContainer = "container:Domain.xcodeproj">
+               BlueprintIdentifier = "FA09C37128BB4D6E0000E2D2"
+               BuildableName = "Presentation.framework"
+               BlueprintName = "Presentation"
+               ReferencedContainer = "container:Presentation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,10 +33,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FAA3DAD228BE231900F17548"
-               BuildableName = "DomainTests.xctest"
-               BlueprintName = "DomainTests"
-               ReferencedContainer = "container:Domain.xcodeproj">
+               BlueprintIdentifier = "FAA3DAEE28BE234B00F17548"
+               BuildableName = "DataTests.xctest"
+               BlueprintName = "DataTests"
+               ReferencedContainer = "container:../Data/Data.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -61,10 +61,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA09C35728BB4D540000E2D2"
-            BuildableName = "Domain.framework"
-            BlueprintName = "Domain"
-            ReferencedContainer = "container:Domain.xcodeproj">
+            BlueprintIdentifier = "FA09C37128BB4D6E0000E2D2"
+            BuildableName = "Presentation.framework"
+            BlueprintName = "Presentation"
+            ReferencedContainer = "container:Presentation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
