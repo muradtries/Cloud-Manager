@@ -17,11 +17,6 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
-      - name: XCode Setup
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '14.0'
-
       - name: Bundle install
         run: bundle install
 
