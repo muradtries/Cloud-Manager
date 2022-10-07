@@ -16,7 +16,7 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
     
     private lazy var syncFlag = true
     private lazy var compositeDisposable = CompositeDisposable()
-    private lazy var disposeBag = DisposeBag()
+    private var disposeBag: DisposeBag?
     
     private var selectedFile: GoogleDriveFileEntity = GoogleDriveFileEntity(identifier: "",
                                                                             name: "",
@@ -37,6 +37,71 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
             }
         }
     }
+    
+    var isFolderEmpty: Bool = true {
+        didSet {
+            if self.isFolderEmpty {
+                self.disclaimerStackView.isHidden = false
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerImage)
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerTitleText)
+                self.disclaimerStackView.setCustomSpacing(4, after: self.disclaimerTitleText)
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerBodyText)
+            } else {
+                self.disclaimerStackView.isHidden = true
+                self.disclaimerImage.removeFromSuperview()
+                self.disclaimerTitleText.removeFromSuperview()
+                self.disclaimerBodyText.removeFromSuperview()
+            }
+        }
+    }
+    
+    private lazy var disclaimerStackView: UIStackView = {
+        let view = UIStackView()
+        
+        self.view.addSubview(view)
+        
+        view.distribution = .equalSpacing
+        view.alignment = .fill
+        view.axis = .vertical
+        view.spacing = 0
+        
+        return view
+    }()
+    
+    private lazy var disclaimerImage: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        
+        view.image = Asset.Media.emptyFolder.image.resizedImage(Size: CGSize(width: 300, height: 300))
+        view.contentMode = .scaleAspectFill
+        
+        return view
+    }()
+    
+    private lazy var disclaimerTitleText: UILabel = {
+        let label = UILabel()
+        
+        label.font = FontFamily.Poppins.medium.font(size: 18)
+        label.textColor = .darkText
+        label.text = "This folder is empty"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    private lazy var disclaimerBodyText: UILabel = {
+        let label = UILabel()
+        
+        label.font = FontFamily.Poppins.regular.font(size: 14)
+        label.textColor = .darkText
+        label.text = "Tap the + button to upload a file or create something else"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        
+        return label
+    }()
 
     private lazy var itemTableView: UITableView = {
         let view = UITableView()
@@ -86,37 +151,46 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        syncFlag = true
+        print("VIEW WILL APPEAR")
         
-        navigationController?.delegate = self
+        self.syncFlag = true
+        
+        self.navigationController?.delegate = self
 
-        viewModel.syncFiles().then { _ in
-            print("🔄 Synced Files")
-        }.catch { error in
-            //show alert vc
-            print("ERROR OCCURED WHILE SYNCING GOOGLE DRIVE FILES \(error.localizedDescription)")
-        }
+        self.viewModel.syncFiles()
+        
+        self.disposeBag = DisposeBag()
+        
+        guard let disposeBag = self.disposeBag else { return }
 
-        let fileSubscription = viewModel.observeFiles().subscribe { received in
-            if self.syncFlag {
-                self.filesAndFoldersList[1] = received.event.element!
-                    .sorted(by: { lhs, rhs in
-                        lhs.name < rhs.name
-                    })
-            }
-        }
-
-        let _ = compositeDisposable.insert(fileSubscription)
+        self.viewModel.observeFiles()
+            .subscribe { filesList in
+                print("🧐 observeFiles called")
+                if self.syncFlag {
+                    if filesList.count == 0 {
+                        self.isFolderEmpty = true
+                    } else {
+                        self.isFolderEmpty = false
+                    }
+                    
+                    self.filesAndFoldersList[1] = filesList
+                }
+            } onError: { error in
+                print(NSError(domain: "fileSubscription", code: 1))
+            } onDisposed: {
+                print("☠️ fileSubscription DISPOSED")
+            }.disposed(by: disposeBag)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        syncFlag = false
-        compositeDisposable.dispose()
+        print("VIEW WILL DISAPPPEAR \(self)")
+        self.syncFlag = false
+        self.disposeBag = nil
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        print("😶‍🌫️ VIEW DID DISAPPEAR")
+        print("😶‍🌫️ VIEW DID DISAPPEAR \(self)")
     }
     
     deinit {
@@ -130,15 +204,34 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
     override func setupUI() {
 
         view.backgroundColor = .white
+        
+        if self.filesAndFoldersList.isEmpty {
+            self.disclaimerStackView.isHidden = false
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerImage)
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerTitleText)
+            self.disclaimerStackView.setCustomSpacing(4, after: self.disclaimerTitleText)
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerBodyText)
+        } else {
+            self.disclaimerStackView.isHidden = true
+            self.disclaimerImage.removeFromSuperview()
+            self.disclaimerTitleText.removeFromSuperview()
+            self.disclaimerBodyText.removeFromSuperview()
+        }
+        
+        self.disclaimerStackView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(32)
+            make.right.equalToSuperview().offset(-32)
+        }
 
-        itemTableView.snp.makeConstraints { make in
+        self.itemTableView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
         
-        uploadFileButton.snp.makeConstraints { make in
+        self.uploadFileButton.snp.makeConstraints { make in
             make.width.height.equalTo(64)
             make.right.equalToSuperview().offset(-16)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-40)
@@ -153,28 +246,28 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
         let (promise, observable) = viewModel.uploadFile(with: fileName, folderID: folderID, data: data, mimeType: mimeType)
         
         promise.then { _ in
-            print("IMAGE UPLOADED TO GOOGLE DRIVE")
-            print(self.filesAndFoldersList[0])
+            print("⬆️ IMAGE UPLOADED TO GOOGLE DRIVE")
             self.filesAndFoldersList[0].removeFirst()
-            self.viewModel.syncFiles().then {
-                print("Synced Files 🔄")
-            }.catch { error in
-                //show alert vc
-            }
+            self.viewModel.syncFiles()
         }
         
         self.observable = observable
         
-        let uploadSubscription = observable.subscribe { received in
-            let cell = self.itemTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FileListTableViewCell
-            
-            print("PROGRESS RECEIVED: \(String(describing: received.element))")
-            if #available(iOS 15.0, *) {
-                cell.progressView.observedProgress = received.element?.progress
-            } else {
-                // Fallback on earlier versions
+        let uploadSubscription = observable
+            .subscribe { receivedProgress in
+                let cell = self.itemTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FileListTableViewCell
+                
+                print("💹 PROGRESS RECEIVED: \(String(describing: receivedProgress))")
+                if #available(iOS 15.0, *) {
+                    cell.progressView.observedProgress = receivedProgress.progress
+                } else {
+                    // Fallback on earlier versions
+                }
+            } onError: { error in
+                print(NSError(domain: "uploadSubscription", code: 1))
+            } onDisposed: {
+                print("☠️ uploadSubscription DISPOSED")
             }
-        }
         
         let _ = compositeDisposable.insert(uploadSubscription)
     }
@@ -203,6 +296,7 @@ extension GoogleDriveController: FileListTableViewCellDelegate {
                                                   webContentLink: file.webContentLink,
                                                   permission: GoogleDrivePermissionEntity(type: file.permission.type, role: file.permission.role),
                                                   lastModified: file.lastModified)
+        self.selectedFileIndexPath = itemTableView.indexPath(for: cell)
         self.selectedFileIndexPathRow = itemTableView.indexPath(for: cell)?.row
         self.viewModel.presentMoreOptions(viewController: self, file: self.selectedFile)
     }
@@ -226,12 +320,8 @@ extension GoogleDriveController: MoreOptionsDelegate {
         print("didSelectedStar")
         self.viewModel.addToStarred(with: self.selectedFile.identifier, starred: starred).then { _ in
             print("FILE STAR STATUS CHANGED")
-            self.itemTableView.reloadRows(at: [IndexPath(row: self.selectedFileIndexPathRow!, section: 1)], with: .none)
-            self.viewModel.syncFiles().then {
-                print("Synced Files 🔄")
-            }.catch { error in
-                //show alert vc
-            }
+            self.itemTableView.reloadRows(at: [self.selectedFileIndexPath!], with: .none)
+            self.viewModel.syncFiles()
         }
     }
     
@@ -264,18 +354,9 @@ extension GoogleDriveController: MoreOptionsDelegate {
 
 extension GoogleDriveController: RenamePopUpControllerDelegate {
     func didApprovedRenaming(to newName: String) {
-        print("didApprovedRenaming")
-        
+        print("didApprovedRenaming to \(newName)")
         let updatedName = "\(newName)\(selectedFile.mimeType.toFileExtension)"
-        
-        self.viewModel.updateFileName(to: "\(updatedName)", fileID: selectedFile.identifier).then { _ in
-            print("SUCCESSFULLY UPDATED NAME ✅")
-            self.viewModel.syncFiles().then {
-                print("Synced Files 🔄")
-            }.catch { error in
-                //show alert vc
-            }
-        }
+        self.viewModel.updateFileName(to: "\(updatedName)", fileID: selectedFile.identifier)
     }
     
     func didCancelRenaming() {
@@ -299,11 +380,7 @@ extension GoogleDriveController: DeletePopUpControllerDelegate {
 extension GoogleDriveController: ManageAccessPopUpControllerDelegate {
     func didFinishedManagingAccess() {
         print("didFinishedEditingOptions")
-        viewModel.syncFiles().then {
-            print("Synced Files 🔄")
-        }.catch { error in
-            //show alert vc
-        }
+        viewModel.syncFiles()
     }
 }
 

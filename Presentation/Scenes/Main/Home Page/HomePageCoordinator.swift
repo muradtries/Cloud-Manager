@@ -47,7 +47,7 @@ public class HomePageCoordinator: Coordinator {
         homeVC.viewModel.presentationDelegate = self
         homeVC.viewModel.navigationDelegate = self
         
-        let tabBarItem = UITabBarItem(title: "Home", image: Asset.icHome.image, tag: 1)
+        let tabBarItem = UITabBarItem(title: "Home", image: Asset.Icons.icHome.image, tag: 1)
         homeVC.tabBarItem = tabBarItem
         
         self.navigationController.pushViewController(homeVC, animated: true)

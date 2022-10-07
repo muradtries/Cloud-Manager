@@ -51,12 +51,12 @@ class HomePageViewModel {
         self.observeDropboxInfoUseCase = observeDropboxInfoUseCase
     }
     
-    func syncGoogleDriveInfo() -> Promise<Void> {
-        self.syncGoogleDriveInfoUseCase.syncInfo()
+    func syncGoogleDriveInfo() {
+        self.syncGoogleDriveInfoUseCase.syncInfo().then { print("🔄 Synced Google Drive Info") }
     }
     
-    func syncDropboxInfo() -> Promise<Void> {
-        self.syncDropboxInfoUseCase.syncInfo()
+    func syncDropboxInfo() {
+        self.syncDropboxInfoUseCase.syncInfo().then { print("🔄 Synced Dropbox Info") }
     }
     
     func observeGoogleDriveInfo() -> Observable<GoogleDriveInfoEntity> {
@@ -95,6 +95,10 @@ class HomePageViewModel {
         }
     }
     
+    func disconnectGoogleDrive() {
+        self.connectGoogleDriveUseCase.disconnect()
+    }
+    
     func connectToDropbox(presenting: UIViewController) {
         self.connectDropboxUseCase.signIn(presenting: presenting).then { _ in
             self.navigationDelegate?.goToDropboxController()
@@ -103,5 +107,9 @@ class HomePageViewModel {
             print(NSError(domain: "connectDropboxUseCase", code: 1))
             return
         }
+    }
+    
+    func disconnectDropbox() {
+        self.connectDropboxUseCase.disconnect()
     }
 }

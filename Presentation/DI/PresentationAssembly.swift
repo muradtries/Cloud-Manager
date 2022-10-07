@@ -16,9 +16,14 @@ public class PresentationAssembly: Assembly {
     private let tabBarController: UITabBarController
     
     public init(homePageNavigationController: UINavigationController, settingsPageNavigationController: UINavigationController, tabBarController: UITabBarController) {
+        print("PRESENTATION ASSEMBLY IS INITIALIZED")
         self.homePageNavigationController = homePageNavigationController
         self.settingsPageNavigationController = settingsPageNavigationController
         self.tabBarController = tabBarController
+    }
+    
+    deinit {
+        print("PRESENTATION ASSEMBLY IS DEALLOCATED")
     }
     
     public func assemble(container: Container) {

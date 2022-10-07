@@ -19,8 +19,8 @@ class PickerOptionsViewModel {
     var pickerOptions: [Option] {
         get {
             return [
-                Option(icon: Asset.icPhotosLibrary.image, label: "Photos Library"),
-                Option(icon: Asset.icFolder.image, label: "Documents")
+                Option(icon: Asset.Icons.icPhotosLibrary.image, label: "Photos Library"),
+                Option(icon: Asset.Icons.icFolder.image, label: "Documents")
             ]
         }
     }

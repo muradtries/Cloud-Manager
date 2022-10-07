@@ -156,22 +156,22 @@ class MoreOptionsController: BaseViewController<MoreOptionsViewModel> {
         switch mimeType {
         case .folder:
             self.fileIcon.tintColor = .lightGray
-            return Asset.icFolder.image
+            return Asset.Icons.icFolder.image
         case .pdf:
             self.fileIcon.tintColor = .systemRed
-            return Asset.icFile.image
+            return Asset.Icons.icFile.image
         case .document:
             self.fileIcon.tintColor = .systemBlue
-            return Asset.icDocument.image
+            return Asset.Icons.icDocument.image
         case .spreadSheet:
             self.fileIcon.tintColor = .systemGreen
-            return Asset.icSpreadsheet.image
+            return Asset.Icons.icSpreadsheet.image
         case .image:
             self.fileIcon.tintColor = .systemPurple
-            return Asset.icImage.image
+            return Asset.Icons.icImage.image
         case .video:
             self.fileIcon.tintColor = .systemOrange
-            return Asset.icVideo.image
+            return Asset.Icons.icVideo.image
         }
     }
 }
@@ -195,32 +195,32 @@ extension MoreOptionsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch pickerOptions[indexPath.row].icon {
-        case Asset.icEdit.image:
+        case Asset.Icons.icEdit.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) {
                 self.viewModel.selectedRenama()
             }
-        case Asset.icStarOutlined.image:
+        case Asset.Icons.icStarOutlined.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) {
                 self.viewModel.selectedStar(starred: true)
             }
-        case Asset.icStarFilled.image:
+        case Asset.Icons.icStarFilled.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) {
                 self.viewModel.selectedStar(starred: false)
             }
-        case Asset.icPersonAdd.image:
+        case Asset.Icons.icPersonAdd.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) {
                 self.viewModel.selectedManageAccess()
             }
-        case Asset.icLink.image:
+        case Asset.Icons.icLink.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) {
                 self.viewModel.selectedCopyLink()
             }
-        case Asset.icDelete.image:
+        case Asset.Icons.icDelete.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) {
                 self.viewModel.selectedDelete()

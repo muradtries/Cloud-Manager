@@ -22,8 +22,8 @@ class DropboxMoreOptionsViewModel {
     var pickerOptions: [Option] {
         get {
             return [
-                Option(icon: Asset.icEdit.image, label: "Rename"),
-                Option(icon: Asset.icDelete.image, label: "Remove")
+                Option(icon: Asset.Icons.icEdit.image, label: "Rename"),
+                Option(icon: Asset.Icons.icDelete.image, label: "Remove")
             ]
         }
     }

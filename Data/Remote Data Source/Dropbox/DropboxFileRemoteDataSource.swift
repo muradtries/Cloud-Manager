@@ -46,6 +46,9 @@ class DropboxFileRemoteDataSource: DropboxFileRemoteDataSourceProtocol {
         if let client = DropboxClientsManager.authorizedClient {
             
             var fileList: [DropboxFileRemoteDTO] = []
+                .sorted(by: { lhs, rhs in
+                lhs.name < rhs.name
+            })
             
             client.files.listFolder(path: folderPath, recursive: false, includeMediaInfo: true, includeDeleted: false, includeHasExplicitSharedMembers: true, includeMountedFolders: true, limit: 30).response { result, error in
                 

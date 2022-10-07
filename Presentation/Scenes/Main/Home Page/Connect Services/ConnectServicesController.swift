@@ -48,9 +48,9 @@ class ConnectServicesController: UIViewController {
         self.view.addSubview(view)
         
         if UserDefaults.standard.bool(forKey: "connectedGoogleDrive") {
-            view.setupService(service: ServiceModel(name: "Google Drive", icon: Asset.icDrive.image, state: .connected))
+            view.setupService(service: ServiceModel(name: "Google Drive", icon: Asset.Icons.icDrive.image, state: .connected))
         } else {
-            view.setupService(service: ServiceModel(name: "Google Drive", icon: Asset.icDrive.image, state: .disconnected))
+            view.setupService(service: ServiceModel(name: "Google Drive", icon: Asset.Icons.icDrive.image, state: .disconnected))
         }
         
         view.delegate = self
@@ -64,9 +64,9 @@ class ConnectServicesController: UIViewController {
         self.view.addSubview(view)
         
         if UserDefaults.standard.bool(forKey: "connectedDropbox") {
-            view.setupService(service: ServiceModel(name: "Dropbox", icon: Asset.icDropbox.image, state: .connected))
+            view.setupService(service: ServiceModel(name: "Dropbox", icon: Asset.Icons.icDropbox.image, state: .connected))
         } else {
-            view.setupService(service: ServiceModel(name: "Dropbox", icon: Asset.icDropbox.image, state: .disconnected))
+            view.setupService(service: ServiceModel(name: "Dropbox", icon: Asset.Icons.icDropbox.image, state: .disconnected))
         }
         
         view.delegate = self
@@ -111,14 +111,14 @@ extension ConnectServicesController: ConnectServiceViewDelegate {
         
         self.dismiss(animated: true) { [weak self] in
             switch service.icon {
-            case Asset.icDrive.image:
+            case Asset.Icons.icDrive.image:
                 switch service.state {
                 case .connected:
                     self?.delegate?.requestedToDisconnectGoogleDrive()
                 case .disconnected:
                     self?.delegate?.requestedToConnectToGoogleDrive()
                 }
-            case Asset.icDropbox.image:
+            case Asset.Icons.icDropbox.image:
                 switch service.state {
                 case .connected:
                     self?.delegate?.requestedToDisconnectDropbox()

@@ -67,8 +67,13 @@ public class GoogleDriveViewModel {
         print("GOOGLE DRIVE VIEW MODEL IS DEALLOCATED")
     }
     
-    func syncFiles() -> Promise<Void> {
-        syncGoogleDriveFilesUseCase.sync(folderID: folderID)
+    func syncFiles() {
+        syncGoogleDriveFilesUseCase.sync(folderID: folderID).then {
+            print("Synced Files 🔄")
+        }.catch { error in
+            //show alert vc
+            print("ERROR OCCURED WHILE SYNCING FILES. ERROR: \(error.localizedDescription)")
+        }
     }
     
     func observeFiles() -> Observable<[GoogleDriveFileEntity]> {
@@ -88,8 +93,13 @@ public class GoogleDriveViewModel {
         self.uploadFileUseCase.uploadFile(with: fileName, folderID: folderID, data: data, mimeType: mimeType)
     }
     
-    func updateFileName(to newName: String, fileID: String) -> Promise<Void> {
-        self.updateFileNameUseCase.updateFileName(to: newName, fileID: fileID)
+    func updateFileName(to newName: String, fileID: String) {
+        self.updateFileNameUseCase.updateFileName(to: newName, fileID: fileID).then { _ in
+            print("SUCCESSFULLY UPDATED NAME ✅")
+            self.syncFiles()
+        }.catch { error in
+            print("ERROR OCCURED WHILE RENAMING FILE. ERROR: \(error.localizedDescription)")
+        }
     }
     
     func goToPreviewFileVC(file: GoogleDriveFileEntity) {
@@ -123,11 +133,7 @@ public class GoogleDriveViewModel {
     func moveToTrash(with fileName: String, fileID: String) {
         self.moveToTrashUseCase.moveToTrashFile(with: fileName, fileID: fileID).then { _ in
             print("FILE MOVED TO TRASH")
-            self.syncFiles().then {
-                print("Synced Files 🔄")
-            }.catch { error in
-                //show alert vc
-            }
+            self.syncFiles()
         }
     }
     
@@ -142,9 +148,9 @@ extension GoogleDriveViewModel {
         
         dict["fileName"] = url.lastPathComponent
         dict["fileExtension"] = url.pathExtension
-        url.startAccessingSecurityScopedResource()
+        let _ = url.startAccessingSecurityScopedResource()
         dict["fileData"] = try! Data(contentsOf: url)
-        url.startAccessingSecurityScopedResource()
+        let _ = url.startAccessingSecurityScopedResource()
         
         return dict
     }

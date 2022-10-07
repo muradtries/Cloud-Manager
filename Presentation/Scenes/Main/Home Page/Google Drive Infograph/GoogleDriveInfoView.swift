@@ -35,7 +35,7 @@ class GoogleDriveInfoView: UIView {
         
         self.contentView.addSubview(view)
         
-        view.image = Asset.icDrive.image
+        view.image = Asset.Icons.icDrive.image
         view.contentMode = .scaleAspectFill
         
         return view

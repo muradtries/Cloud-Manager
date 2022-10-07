@@ -40,7 +40,7 @@ class SettingsPageCoordinator: Coordinator {
         
         settingsVC.navigationItem.hidesBackButton = true
         
-        let tabBarItem = UITabBarItem(title: "Settings", image: Asset.icSettings.image, tag: 2)
+        let tabBarItem = UITabBarItem(title: "Settings", image: Asset.Icons.icSettings.image, tag: 2)
         settingsVC.tabBarItem = tabBarItem
         
         self.navigationController.pushViewController(settingsVC, animated: true)

@@ -35,7 +35,7 @@ class DropboxInfoView: UIView {
         
         self.contentView.addSubview(view)
         
-        view.image = Asset.icDropbox.image
+        view.image = Asset.Icons.icDropbox.image
         view.contentMode = .scaleAspectFill
         
         return view

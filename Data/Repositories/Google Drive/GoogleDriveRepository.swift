@@ -54,11 +54,11 @@ class GoogleDriveRepo: GoogleDriveRepoProtocol, GoogleDrivePermissionRepoProtoco
         let promise = Promise<Void>.pending()
         
         self.remoteDataSource.fetchFiles(in: folderID)
-            .then { fileList in
-                let list = fileList.filter { dto in
-                    dto.trashed == false
+            .then { data in
+                let localData = data.map { remote in
+                    remote.toLocal(folderID: folderID)
                 }
-                return self.localDataSource.save(files: list, folderId: folderID)
+                return self.localDataSource.save(files: localData, folderID: folderID)
             }
             .then { void in
                 promise.fulfill(void)
@@ -70,8 +70,8 @@ class GoogleDriveRepo: GoogleDriveRepoProtocol, GoogleDrivePermissionRepoProtoco
         return promise
     }
     
-    func observeFiles(folderId: String) -> Observable<[GoogleDriveFileEntity]> {
-        self.localDataSource.observe(folderId: folderId).map { localDTOs in
+    func observeFiles(folderID: String) -> Observable<[GoogleDriveFileEntity]> {
+        self.localDataSource.observe(folderID: folderID).map { localDTOs in
             localDTOs.map { $0.toDomain }
         }
     }

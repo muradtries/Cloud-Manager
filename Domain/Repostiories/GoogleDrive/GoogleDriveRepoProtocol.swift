@@ -12,7 +12,7 @@ import Promises
 public protocol GoogleDriveRepoProtocol {
     func observeGoogleDriveInfo() -> Observable<GoogleDriveInfoEntity>
     func syncGoogleDriveInfo() -> Promise<Void>
-    func observeFiles(folderId: String) -> Observable<[GoogleDriveFileEntity]>
+    func observeFiles(folderID: String) -> Observable<[GoogleDriveFileEntity]>
     func syncFiles(_ folderID: String) -> Promise<Void>
     func restoreUser() -> Promise<Void>
     func download(file: GoogleDriveFileEntity) -> Promise<Data>

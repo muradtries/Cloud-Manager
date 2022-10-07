@@ -8,50 +8,75 @@
 import UIKit
 import RxSwift
 import SnapKit
-import RxRelay
+import RxRelay 
 import RxCocoa
-import Lottie
 
 class HomePageController: BaseViewController<HomePageViewModel> {
     
     let notificationCenter = NotificationCenter.default
     
     private lazy var compositeDisposable = CompositeDisposable()
-    private var disposeBag = DisposeBag()
+    private var disposeBag: DisposeBag?
     
     var numberOfConnectedServices: Int = 0 {
         didSet {
             if self.infoStackView.subviews.count > 0 {
-                self.disclaimerText.isHidden = true
+                self.disclaimerStackView.isHidden = true
+                self.disclaimerImage.removeFromSuperview()
+                self.disclaimerText.removeFromSuperview()
             } else {
-                self.disclaimerText.isHidden = false
+                self.disclaimerStackView.isHidden = false
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerImage)
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerText)
             }
         }
     }
     
+    private lazy var disclaimerStackView: UIStackView = {
+        let view = UIStackView()
+        
+        self.view.addSubview(view)
+        
+        view.distribution = .equalSpacing
+        view.alignment = .fill
+        view.axis = .vertical
+        view.spacing = 0
+        
+        return view
+    }()
+    
+    private lazy var disclaimerImage: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        
+        view.image = Asset.Media.comingSoon.image.resizedImage(Size: CGSize(width: 300, height: 300))
+        view.contentMode = .scaleAspectFill
+        
+        return view
+    }()
+    
     private lazy var disclaimerText: UILabel = {
         let label = UILabel()
-        
-        self.view.addSubview(label)
         
         label.font = FontFamily.Poppins.regular.font(size: 16)
         label.textColor = .darkText
         
-        let imageAttachment = NSTextAttachment(image: (Asset.icHub.image.resizedImage(Size: CGSize(width: 15, height: 15))?.withTintColor(.systemBlue))!)
+        let imageAttachment = NSTextAttachment(image: (Asset.Icons.icHub.image.resizedImage(Size: CGSize(width: 15, height: 15))?.withTintColor(.systemBlue))!)
         imageAttachment.bounds = CGRect(x: 0, y: -2, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
         
         let attachmentString = NSAttributedString(attachment: imageAttachment)
         
-        let completeText = NSMutableAttributedString(string: "Tap ")
+        let completeText = NSMutableAttributedString(string: "Tap the ")
         
         completeText.append(attachmentString)
         
-        let textAfterIcon = NSAttributedString(string: " icon to add cloud services.")
+        let textAfterIcon = NSAttributedString(string: " icon to add cloud services")
         
         completeText.append(textAfterIcon)
         
         label.textAlignment = .center
         label.attributedText = completeText
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         
         return label
     }()
@@ -117,35 +142,45 @@ class HomePageController: BaseViewController<HomePageViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.disposeBag = DisposeBag()
+        
+        guard let disposeBag = self.disposeBag else { return }
+        
         if UserDefaults.standard.bool(forKey: "connectedGoogleDrive") {
             self.viewModel.restoreUser().then { _ in
                 print("Restored User")
-                self.viewModel.syncGoogleDriveInfo().then { print("🔄 Synced Google Drive Info") }
+                self.viewModel.syncGoogleDriveInfo()
             }
             
-            let driveSubscription = self.viewModel.observeGoogleDriveInfo().subscribe { received in
-                print("🧐 observeGoogleDriveInfo called")
-                self.googleDriveInfo.fillInfoView(with: received.element!)
-            }
-            
-            let _ = compositeDisposable.insert(driveSubscription)
+            self.viewModel.observeGoogleDriveInfo()
+                .subscribe { info in
+                    print("🧐 observeGoogleDriveInfo called")
+                    self.googleDriveInfo.fillInfoView(with: info)
+                } onError: { error in
+                    print(NSError(domain: "Google Drive Info Subscription", code: 1))
+                } onDisposed: {
+                    print("☠️ Google Drive Info Subscription DISPOSED")
+                }.disposed(by: disposeBag)
         }
         
         if UserDefaults.standard.bool(forKey: "connectedDropbox") {
-            self.viewModel.syncDropboxInfo().then { print("🔄 Synced Dropbox Info") }
+            self.viewModel.syncDropboxInfo()
             
-            let dropboxSubscription = self.viewModel.observeDropboxInfo().subscribe { received in
-                print("🧐 observeDropboxInfo called")
-                self.dropboxInfo.fillInfoView(with: received.element!)
-            }
-            
-            let _ = compositeDisposable.insert(dropboxSubscription)
+            self.viewModel.observeDropboxInfo()
+                .subscribe { info in
+                    print("🧐 observeDropboxInfo called")
+                    self.dropboxInfo.fillInfoView(with: info)
+                } onError: { error in
+                    print(NSError(domain: "infoSubscription", code: 1))
+                } onDisposed: {
+                    print("☠️ Dropbox Info Subscription DISPOSED")
+                }.disposed(by: disposeBag)
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        compositeDisposable.dispose()
+        super.viewWillDisappear(animated)
+        self.disposeBag = nil
     }
     
     deinit {
@@ -161,7 +196,7 @@ class HomePageController: BaseViewController<HomePageViewModel> {
                                                                         NSAttributedString.Key.foregroundColor:
                                                                             UIColor.darkText]
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Asset.icHub.image.resizedImage(Size: CGSize(width: 28, height: 28)), style: .plain, target: self, action: #selector(onTapAddButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Asset.Icons.icHub.image.resizedImage(Size: CGSize(width: 28, height: 28)), style: .plain, target: self, action: #selector(onTapAddButton))
     }
     
     override func setupUI() {
@@ -169,6 +204,16 @@ class HomePageController: BaseViewController<HomePageViewModel> {
         self.view.backgroundColor = .white
         
         self.title = "Home"
+        
+        if self.infoStackView.subviews.count > 0 {
+            self.disclaimerStackView.isHidden = true
+            self.disclaimerImage.removeFromSuperview()
+            self.disclaimerText.removeFromSuperview()
+        } else {
+            self.disclaimerStackView.isHidden = false
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerImage)
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerText)
+        }
         
         if UserDefaults.standard.bool(forKey: "connectedGoogleDrive") {
             self.infoStackView.addArrangedSubview(self.googleDriveInfo)
@@ -178,14 +223,8 @@ class HomePageController: BaseViewController<HomePageViewModel> {
             self.infoStackView.addArrangedSubview(self.dropboxInfo)
         }
         
-        if self.infoStackView.subviews.count > 0 {
-            self.disclaimerText.isHidden = true
-        } else {
-            self.disclaimerText.isHidden = false
-        }
-        
-        self.disclaimerText.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(24)
+        self.disclaimerStackView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(32)
             make.right.equalToSuperview().offset(-32)
         }
@@ -254,12 +293,12 @@ extension HomePageController: ConnectServicesDelegate {
     }
     
     func requestedToDisconnectGoogleDrive() {
-        self.viewModel.connectGoogleDriveUseCase.disconnect()
+        self.viewModel.disconnectGoogleDrive()
         print("requestedToDisconnectGoogleDrive")
     }
     
     func requestedToDisconnectDropbox() {
-        self.viewModel.connectDropboxUseCase.disconnect()
+        self.viewModel.disconnectDropbox()
         print("requestedToDisconnectDropbox")
     }
 }

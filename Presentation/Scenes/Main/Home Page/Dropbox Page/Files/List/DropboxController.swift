@@ -17,7 +17,7 @@ class DropboxController: BaseViewController<DropboxViewModel> {
     
     private lazy var syncFlag = true
     private lazy var compositeDisposable = CompositeDisposable()
-    private lazy var disposeBag = DisposeBag()
+    private var disposeBag: DisposeBag?
     
     private var selectedFile: DropboxFileEntity = DropboxFileEntity(identifier: "",
                                                                     parentFolderPath: "",
@@ -35,6 +35,71 @@ class DropboxController: BaseViewController<DropboxViewModel> {
             }
         }
     }
+    
+    var isFolderEmpty: Bool = true {
+        didSet {
+            if self.isFolderEmpty {
+                self.disclaimerStackView.isHidden = false
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerImage)
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerTitleText)
+                self.disclaimerStackView.setCustomSpacing(4, after: self.disclaimerTitleText)
+                self.disclaimerStackView.addArrangedSubview(self.disclaimerBodyText)
+            } else {
+                self.disclaimerStackView.isHidden = true
+                self.disclaimerImage.removeFromSuperview()
+                self.disclaimerTitleText.removeFromSuperview()
+                self.disclaimerBodyText.removeFromSuperview()
+            }
+        }
+    }
+    
+    private lazy var disclaimerStackView: UIStackView = {
+        let view = UIStackView()
+        
+        self.view.addSubview(view)
+        
+        view.distribution = .equalSpacing
+        view.alignment = .fill
+        view.axis = .vertical
+        view.spacing = 0
+        
+        return view
+    }()
+    
+    private lazy var disclaimerImage: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        
+        view.image = Asset.Media.emptyFolder.image.resizedImage(Size: CGSize(width: 300, height: 300))
+        view.contentMode = .scaleAspectFill
+        
+        return view
+    }()
+    
+    private lazy var disclaimerTitleText: UILabel = {
+        let label = UILabel()
+        
+        label.font = FontFamily.Poppins.medium.font(size: 18)
+        label.textColor = .darkText
+        label.text = "This folder is empty"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    private lazy var disclaimerBodyText: UILabel = {
+        let label = UILabel()
+        
+        label.font = FontFamily.Poppins.regular.font(size: 14)
+        label.textColor = .darkText
+        label.text = "Tap the + button to upload a file or create something else"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        
+        return label
+    }()
 
     private lazy var itemTableView: UITableView = {
         let view = UITableView()
@@ -88,29 +153,38 @@ class DropboxController: BaseViewController<DropboxViewModel> {
         
         navigationController?.delegate = self
 
-        viewModel.syncFiles().then { _ in
-            print("🔄 Synced Files")
-        }.catch { error in
-            // show alert vc
-            print("ERROR OCCURED WHILE SYNCING DROPBOX FILES \(error.localizedDescription)")
-        }
+        viewModel.syncFiles()
 
-        let fileSubscription = viewModel.observeFiles().subscribe { received in
-            if self.syncFlag {
-                self.filesAndFoldersList[1] = received.event.element!
-                    .sorted(by: { lhs, rhs in
-                        lhs.name < rhs.name
-                    })
-            }
-        }
+        self.disposeBag = DisposeBag()
+        
+        guard let disposeBag = self.disposeBag else { return }
 
-        let _ = compositeDisposable.insert(fileSubscription)
+        self.viewModel.observeFiles()
+            .subscribe { filesList in
+                print("🧐 observeFiles called")
+                if self.syncFlag {
+                    if filesList.count == 0 {
+                        self.isFolderEmpty = true
+                    } else {
+                        self.isFolderEmpty = false
+                    }
+                    
+                    self.filesAndFoldersList[1] = filesList
+                        .sorted(by: { lhs, rhs in
+                            lhs.name < rhs.name
+                        })
+                }
+            } onError: { error in
+                print(NSError(domain: "fileSubscription", code: 1))
+            } onDisposed: {
+                print("☠️ fileSubscription DISPOSED")
+            }.disposed(by: disposeBag)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         syncFlag = false
-        compositeDisposable.dispose()
+        self.disposeBag = nil
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -129,14 +203,33 @@ class DropboxController: BaseViewController<DropboxViewModel> {
 
         view.backgroundColor = .white
         
-        itemTableView.snp.makeConstraints { make in
+        if self.filesAndFoldersList.isEmpty {
+            self.disclaimerStackView.isHidden = false
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerImage)
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerTitleText)
+            self.disclaimerStackView.setCustomSpacing(4, after: self.disclaimerTitleText)
+            self.disclaimerStackView.addArrangedSubview(self.disclaimerBodyText)
+        } else {
+            self.disclaimerStackView.isHidden = true
+            self.disclaimerImage.removeFromSuperview()
+            self.disclaimerTitleText.removeFromSuperview()
+            self.disclaimerBodyText.removeFromSuperview()
+        }
+        
+        self.disclaimerStackView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(32)
+            make.right.equalToSuperview().offset(-32)
+        }
+        
+        self.itemTableView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
         
-        uploadFileButton.snp.makeConstraints { make in
+        self.uploadFileButton.snp.makeConstraints { make in
             make.width.height.equalTo(64)
             make.right.equalToSuperview().offset(-16)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-40)
@@ -149,26 +242,31 @@ class DropboxController: BaseViewController<DropboxViewModel> {
     
     func uploadFile(to folderPath: String, with fileName: String, data: Data) {
         let (promise, observable) = viewModel.uploadFile(to: folderPath, with: fileName, data: data)
+        
         promise.then { _ in
-            print("IMAGE UPLOADED TO GOOGLE DRIVE")
-            print(self.filesAndFoldersList[0])
+            print("⬆️ IMAGE UPLOADED TO GOOGLE DRIVE")
             self.filesAndFoldersList[0].removeFirst()
-            self.viewModel.syncFiles().then { _ in
-                print("🔄 Synced Files")
-            }
+            self.viewModel.syncFiles()
         }
         
         self.observable = observable
         
-        let uploadSubscription = observable.subscribe { received in
-            let cell = self.itemTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DropboxFileListTableViewCell
-            if #available(iOS 15.0, *) {
-                cell.progressView.observedProgress = received.element?.progress
-            } else {
-                // Fallback on earlier versions
+        let uploadSubscription = observable
+            .subscribe { receivedProgress in
+                let cell = self.itemTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DropboxFileListTableViewCell
+                
+                print("💹 PROGRESS RECEIVED: \(String(describing: receivedProgress))")
+                if #available(iOS 15.0, *) {
+                    cell.progressView.observedProgress = receivedProgress.progress
+                } else {
+                    // Fallback on earlier versions
+                }
+            } onError: { error in
+                print(NSError(domain: "uploadSubscription", code: 1))
+            } onDisposed: {
+                print("☠️ uploadSubscription DISPOSED")
             }
-        }
-
+        
         let _ = compositeDisposable.insert(uploadSubscription)
     }
 }
@@ -221,7 +319,7 @@ extension DropboxController: UITableViewDelegate, UITableViewDataSource {
             tableView.deselectRow(at: indexPath, animated: true)
         case .image:
             viewModel.goToPreviewImage(file: filesAndFoldersList[indexPath.section][indexPath.row])
-        case .pdf, .document, .spreadSheet, .video:
+        case .pdf, .document, .spreadSheet, .audio, .video:
             tableView.deselectRow(at: indexPath, animated: true)
             viewModel.goToPreviewFileVC(file: filesAndFoldersList[1][indexPath.row])
         }
@@ -302,9 +400,7 @@ extension DropboxController: RenamePopUpControllerDelegate {
         
         self.viewModel.updateFileName(from: self.selectedFile.name, to: updatedName, parentFolderPath: viewModel.folderPath).then { _ in
             print("✅ SUCCESSFULLY UPDATED NAME")
-            self.viewModel.syncFiles().then { _ in
-                print("Synced Files 🔄")
-            }
+            self.viewModel.syncFiles()
         }
     }
 }

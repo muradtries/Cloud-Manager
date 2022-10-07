@@ -97,8 +97,9 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
         
         let query = GTLRDriveQuery_FilesList.query()
         query.pageSize = 100
-        query.q = "'\(folderID)' in parents"
+        query.q = "'\(folderID)' in parents and trashed = false"
         query.fields = "files(id,name,parents, mimeType, trashed, starred, shared, permissions, modifiedTime, webViewLink)"
+        query.orderBy = "name"
         
         self.restoreUser().then { _ in
             self.service.executeQuery(query) { (ticket, result, error) in

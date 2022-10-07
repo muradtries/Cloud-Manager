@@ -41,9 +41,9 @@ class IconLabelTableViewCell: UITableViewCell {
     
     func setupCell(icon: UIImage, label: String) {
         self.icon.image = icon
-        if icon == Asset.icStarFilled.image {
+        if icon == Asset.Icons.icStarFilled.image {
             self.icon.tintColor = .systemYellow
-        } else if icon == Asset.icDelete.image {
+        } else if icon == Asset.Icons.icDelete.image {
             self.icon.tintColor = .systemRed
             self.label.textColor = .systemRed
         } else {

@@ -56,8 +56,13 @@ class DropboxViewModel {
         print("DROPBOX VM DEALLOCATED")
     }
     
-    func syncFiles() -> Promise<Void> {
-        syncDropboxFilesUseCase.sync(folderPath: folderPath)
+    func syncFiles() {
+        syncDropboxFilesUseCase.sync(folderPath: self.folderPath).then {
+            print("Synced Files 🔄")
+        }.catch { error in
+            //show alert vc
+            print("ERROR OCCURED WHILE SYNCING FILES. ERROR: \(error.localizedDescription)")
+        }
     }
     
     func observeFiles() -> Observable<[DropboxFileEntity]> {
@@ -88,9 +93,7 @@ class DropboxViewModel {
     func moveToTrash(path: String) {
         self.moveToTrashUseCase.moveToTrashFile(path: path).then { _ in
             print("FILE MOVED TO TRASH")
-            self.syncFiles().then { _ in
-                print("Synced Files 🔄")
-            }
+            self.syncFiles()
         }
     }
     
@@ -117,9 +120,9 @@ extension DropboxViewModel {
         
         dict["fileName"] = url.lastPathComponent
         dict["fileExtension"] = url.pathExtension
-        url.startAccessingSecurityScopedResource()
+        let _ = url.startAccessingSecurityScopedResource()
         dict["fileData"] = try! Data(contentsOf: url)
-        url.startAccessingSecurityScopedResource()
+        let _ = url.startAccessingSecurityScopedResource()
         
         return dict
     }

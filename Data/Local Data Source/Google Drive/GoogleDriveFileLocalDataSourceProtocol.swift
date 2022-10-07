@@ -12,6 +12,6 @@ import RxSwift
 public protocol GoogleDriveFileLocalDataSourceProtocol {
     func save(info: GoogleDriveInfoLocalDTO) -> Promise<Void>
     func observeInfo() -> Observable<GoogleDriveInfoLocalDTO>
-    func save(files: [GoogleDriveFileRemoteDTO], folderId: String) -> Promise<Void>
-    func observe(folderId: String) -> Observable<[GoogleDriveFileLocalDTO]>
+    func save(files: [GoogleDriveFileLocalDTO], folderID: String) -> Promise<Void>
+    func observe(folderID: String) -> Observable<[GoogleDriveFileLocalDTO]>
 }

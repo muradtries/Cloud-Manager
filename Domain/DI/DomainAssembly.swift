@@ -11,7 +11,11 @@ import Swinject
 public class DomainAssembly: Assembly {
     
     public init() {
-        
+        print("DOMAIN ASSEMBLY INITIALIZED")
+    }
+    
+    deinit {
+        print("DOMAIN ASSEMBLY DEALLOCATED")
     }
     
     public func assemble(container: Container) {

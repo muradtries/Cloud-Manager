@@ -19,6 +19,10 @@ public class DataAssembly: Assembly {
         print("DATA ASSEMBLY IS INITIALIZED")
     }
     
+    deinit {
+        print("DATA ASSEMBLY IS DEALLOCATED")
+    }
+    
     public func assemble(container: Container) {
         
         container.register(GTLRDriveService.self) { r in
@@ -70,9 +74,5 @@ public class DataAssembly: Assembly {
             GoogleDriveRepo(remoteDataSource: r.resolve(GoogleDriveFileRemoteDataSourceProtocol.self)!,
                             localDataSource: r.resolve(GoogleDriveFileLocalDataSourceProtocol.self)!)
         }
-    }
-    
-    deinit {
-        print("DATA ASSEMBLY IS DEALLOCATED")
     }
 }

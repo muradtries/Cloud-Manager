@@ -84,6 +84,10 @@ extension DropboxFileLocalDTO {
             return EDropboxFileMimeType.image(".jpg")
         case "png":
             return EDropboxFileMimeType.image(".png")
+        case "webp":
+            return EDropboxFileMimeType.image(".webp")
+        case "mp3":
+            return EDropboxFileMimeType.audio(".mp3")
         case "pdf":
             return EDropboxFileMimeType.pdf(".pdf")
         case "xlsx":

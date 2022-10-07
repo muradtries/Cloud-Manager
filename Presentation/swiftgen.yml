@@ -4,6 +4,7 @@ output_dir: ./Generated/
 xcassets:
   inputs: 
    - Assets/Icons.xcassets
+   - Assets/Media.xcassets
   outputs:
    templateName: swift5
    output: XCAssets+Generated.swift

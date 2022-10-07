@@ -25,11 +25,11 @@ class MoreOptionsViewModel {
     var pickerOptions: [Option] {
         get {
             return [
-                Option(icon: Asset.icEdit.image, label: "Rename"),
-                Option(icon: file.starred ? Asset.icStarFilled.image : Asset.icStarOutlined.image, label: file.starred ? "Remove from starred" : "Add to Starred"),
-                Option(icon: Asset.icPersonAdd.image, label: "Manage Access"),
-                Option(icon: Asset.icLink.image, label: "Copy Link"),
-                Option(icon: Asset.icDelete.image, label: "Remove")
+                Option(icon: Asset.Icons.icEdit.image, label: "Rename"),
+                Option(icon: file.starred ? Asset.Icons.icStarFilled.image : Asset.Icons.icStarOutlined.image, label: file.starred ? "Remove from starred" : "Add to Starred"),
+                Option(icon: Asset.Icons.icPersonAdd.image, label: "Manage Access"),
+                Option(icon: Asset.Icons.icLink.image, label: "Copy Link"),
+                Option(icon: Asset.Icons.icDelete.image, label: "Remove")
             ]
         }
     }

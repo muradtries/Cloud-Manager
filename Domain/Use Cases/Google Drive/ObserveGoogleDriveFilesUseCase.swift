@@ -16,6 +16,6 @@ public class ObserveGoogleDriveFilesUseCase {
     }
     
     public func observe(folderId: String) -> Observable<[GoogleDriveFileEntity]> {
-        self.repo.observeFiles(folderId: folderId)
+        self.repo.observeFiles(folderID: folderId)
     }
 }

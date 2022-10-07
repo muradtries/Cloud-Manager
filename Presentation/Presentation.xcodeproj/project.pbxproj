@@ -18,6 +18,12 @@
 		FA09C37628BB4D6E0000E2D2 /* Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = FA09C37528BB4D6E0000E2D2 /* Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA09C38928BB4D960000E2D2 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA09C38828BB4D960000E2D2 /* Domain.framework */; };
 		FA09C38A28BB4D960000E2D2 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA09C38828BB4D960000E2D2 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA25413728ECDDF300419534 /* SplashAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25413628ECDDF300419534 /* SplashAnimator.swift */; };
+		FA25413928ECE3F400419534 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25413828ECE3F400419534 /* SplashPresenter.swift */; };
+		FA25413B28ECE51F00419534 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25413A28ECE51F00419534 /* SplashController.swift */; };
+		FA25413E28ED68D100419534 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA25413D28ED68D100419534 /* SnapKit */; };
+		FA25414028EDEF4100419534 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA25413F28EDEF4100419534 /* Media.xcassets */; };
+		FA25414228EEBDA200419534 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25414128EEBDA200419534 /* UIStackView+Ext.swift */; };
 		FA3001B828D1C91B005BE124 /* UISheetPresentationControllerDetent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3001B728D1C91B005BE124 /* UISheetPresentationControllerDetent+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA3001C928D3934B005BE124 /* IconLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001C828D3934B005BE124 /* IconLabelTableViewCell.swift */; };
 		FA3001CE28D39EDC005BE124 /* PickerOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001CD28D39EDC005BE124 /* PickerOptionsViewModel.swift */; };
@@ -30,7 +36,6 @@
 		FA381B2F28C7482700173499 /* SettingsPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B2E28C7482700173499 /* SettingsPageCoordinator.swift */; };
 		FA381B3128C7483100173499 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B3028C7483100173499 /* SettingsController.swift */; };
 		FA381B3528C761CA00173499 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B3428C761CA00173499 /* SettingsPageViewModel.swift */; };
-		FA381B3D28C899A300173499 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA381B3C28C899A300173499 /* SnapKit */; };
 		FA381B4328CA1A6D00173499 /* FileListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B4228CA1A6D00173499 /* FileListTableViewCell.swift */; };
 		FA381B5228CB51B400173499 /* SFSafariViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B5128CB51B400173499 /* SFSafariViewController+Ext.swift */; };
 		FA381B5428CB646300173499 /* GoogleDriveInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA381B5328CB646300173499 /* GoogleDriveInfoView.swift */; };
@@ -60,15 +65,13 @@
 		FA474CF628E8E80E00FB7682 /* PreviewImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA474CF528E8E80E00FB7682 /* PreviewImageController.swift */; };
 		FA474CF828E8EDCD00FB7682 /* DropboxPreviewImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA474CF728E8EDCD00FB7682 /* DropboxPreviewImageController.swift */; };
 		FA474CFA28E8F17B00FB7682 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA474CF928E8F17B00FB7682 /* UINavigationController+Ext.swift */; };
-		FA474CFC28E9714500FB7682 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA474CFB28E9714500FB7682 /* SplashViewController.swift */; };
 		FA4B475F28E2ED520044FA32 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B475E28E2ED520044FA32 /* UIView+Ext.swift */; };
 		FA4B476D28E42C240044FA32 /* ConnectServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B476C28E42C240044FA32 /* ConnectServicesController.swift */; };
 		FA4B477128E42FE00044FA32 /* ConnectServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B477028E42FE00044FA32 /* ConnectServiceView.swift */; };
 		FA4B477328E437EA0044FA32 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B477228E437EA0044FA32 /* ServiceModel.swift */; };
-		FA4E5AD328E62B9D00AD857B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FA4E5AD228E62B9D00AD857B /* Lottie */; };
 		FA762CD528D4E5DA0051BEC3 /* RenamePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762CD428D4E5DA0051BEC3 /* RenamePopUpController.swift */; };
 		FA762CDB28D540BA0051BEC3 /* ManageAccessPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762CDA28D540BA0051BEC3 /* ManageAccessPopUpController.swift */; };
-		FA762CF028D7AF1B0051BEC3 /* BottomPopUpAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762CEF28D7AF1B0051BEC3 /* BottomPopUpAlert.swift */; };
+		FA762CF028D7AF1B0051BEC3 /* TopPopUpAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762CEF28D7AF1B0051BEC3 /* TopPopUpAlert.swift */; };
 		FA762CF228D7BC420051BEC3 /* ManageAccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762CF128D7BC420051BEC3 /* ManageAccessViewModel.swift */; };
 		FA762CF428D894F10051BEC3 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762CF328D894F10051BEC3 /* UIImage+Ext.swift */; };
 		FA762D0728D937790051BEC3 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA762D0628D937790051BEC3 /* Date+Ext.swift */; };
@@ -128,6 +131,11 @@
 		FA09C37228BB4D6E0000E2D2 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA09C37528BB4D6E0000E2D2 /* Presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presentation.h; sourceTree = "<group>"; };
 		FA09C38828BB4D960000E2D2 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA25413628ECDDF300419534 /* SplashAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimator.swift; sourceTree = "<group>"; };
+		FA25413828ECE3F400419534 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		FA25413A28ECE51F00419534 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
+		FA25413F28EDEF4100419534 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		FA25414128EEBDA200419534 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 		FA3001B728D1C91B005BE124 /* UISheetPresentationControllerDetent+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISheetPresentationControllerDetent+Private.h"; sourceTree = "<group>"; };
 		FA3001C828D3934B005BE124 /* IconLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelTableViewCell.swift; sourceTree = "<group>"; };
 		FA3001CD28D39EDC005BE124 /* PickerOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerOptionsViewModel.swift; sourceTree = "<group>"; };
@@ -169,14 +177,13 @@
 		FA474CF528E8E80E00FB7682 /* PreviewImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageController.swift; sourceTree = "<group>"; };
 		FA474CF728E8EDCD00FB7682 /* DropboxPreviewImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxPreviewImageController.swift; sourceTree = "<group>"; };
 		FA474CF928E8F17B00FB7682 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
-		FA474CFB28E9714500FB7682 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		FA4B475E28E2ED520044FA32 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		FA4B476C28E42C240044FA32 /* ConnectServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectServicesController.swift; sourceTree = "<group>"; };
 		FA4B477028E42FE00044FA32 /* ConnectServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectServiceView.swift; sourceTree = "<group>"; };
 		FA4B477228E437EA0044FA32 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		FA762CD428D4E5DA0051BEC3 /* RenamePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenamePopUpController.swift; sourceTree = "<group>"; };
 		FA762CDA28D540BA0051BEC3 /* ManageAccessPopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccessPopUpController.swift; sourceTree = "<group>"; };
-		FA762CEF28D7AF1B0051BEC3 /* BottomPopUpAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopUpAlert.swift; sourceTree = "<group>"; };
+		FA762CEF28D7AF1B0051BEC3 /* TopPopUpAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPopUpAlert.swift; sourceTree = "<group>"; };
 		FA762CF128D7BC420051BEC3 /* ManageAccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccessViewModel.swift; sourceTree = "<group>"; };
 		FA762CF328D894F10051BEC3 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		FA762D0628D937790051BEC3 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -206,8 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA09C38928BB4D960000E2D2 /* Domain.framework in Frameworks */,
-				FA381B3D28C899A300173499 /* SnapKit in Frameworks */,
-				FA4E5AD328E62B9D00AD857B /* Lottie in Frameworks */,
+				FA25413E28ED68D100419534 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +265,7 @@
 				FA762CF328D894F10051BEC3 /* UIImage+Ext.swift */,
 				FA762D0628D937790051BEC3 /* Date+Ext.swift */,
 				FAA7FF1428DE46E30053FD0A /* String+Ext.swift */,
+				FA25414128EEBDA200419534 /* UIStackView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +315,16 @@
 				FA09C38828BB4D960000E2D2 /* Domain.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA25413028ECD57700419534 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FA25413A28ECE51F00419534 /* SplashController.swift */,
+				FA25413828ECE3F400419534 /* SplashPresenter.swift */,
+				FA25413628ECDDF300419534 /* SplashAnimator.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		FA3001CA28D39A25005BE124 /* Files */ = {
@@ -390,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				FA381B5628CB6D1200173499 /* Icons.xcassets */,
+				FA25413F28EDEF4100419534 /* Media.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -459,7 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3001C828D3934B005BE124 /* IconLabelTableViewCell.swift */,
-				FA762CEF28D7AF1B0051BEC3 /* BottomPopUpAlert.swift */,
+				FA762CEF28D7AF1B0051BEC3 /* TopPopUpAlert.swift */,
 			);
 			path = "Template Views";
 			sourceTree = "<group>";
@@ -548,7 +566,7 @@
 			isa = PBXGroup;
 			children = (
 				FA045EB228C0A61E00A90DAA /* BaseViewController.swift */,
-				FA474CFB28E9714500FB7682 /* SplashViewController.swift */,
+				FA25413028ECD57700419534 /* Splash */,
 				FAB315E628BBB8CF00D22ACF /* Main */,
 			);
 			path = Scenes;
@@ -612,8 +630,7 @@
 			);
 			name = Presentation;
 			packageProductDependencies = (
-				FA381B3C28C899A300173499 /* SnapKit */,
-				FA4E5AD228E62B9D00AD857B /* Lottie */,
+				FA25413D28ED68D100419534 /* SnapKit */,
 			);
 			productName = Presentation;
 			productReference = FA09C37228BB4D6E0000E2D2 /* Presentation.framework */;
@@ -666,8 +683,7 @@
 			);
 			mainGroup = FA09C36828BB4D6E0000E2D2;
 			packageReferences = (
-				FA381B3B28C899A300173499 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				FA4E5AD128E62B9D00AD857B /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				FA25413C28ED68D100419534 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FA09C37328BB4D6E0000E2D2 /* Products */;
 			projectDirPath = "";
@@ -700,6 +716,7 @@
 				FA381B9228CB7CD700173499 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				FA381B9A28CB7CD700173499 /* Poppins-Bold.ttf in Resources */,
 				FA381B9828CB7CD700173499 /* Poppins-LightItalic.ttf in Resources */,
+				FA25414028EDEF4100419534 /* Media.xcassets in Resources */,
 				FA381B9428CB7CD700173499 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				FA381B9928CB7CD700173499 /* Poppins-MediumItalic.ttf in Resources */,
 				FA381BA228CB7CD700173499 /* Poppins-Regular.ttf in Resources */,
@@ -723,6 +740,7 @@
 			files = (
 				FAA7FEFB28DCEEAA0053FD0A /* DropboxFileListTableViewCell.swift in Sources */,
 				FA3001D528D3DAB0005BE124 /* MoreOptionsViewModel.swift in Sources */,
+				FA25413928ECE3F400419534 /* SplashPresenter.swift in Sources */,
 				FA474CFA28E8F17B00FB7682 /* UINavigationController+Ext.swift in Sources */,
 				FAA7FF1528DE46E30053FD0A /* String+Ext.swift in Sources */,
 				FA762D0A28D940CA0051BEC3 /* DeletePopUpController.swift in Sources */,
@@ -736,7 +754,7 @@
 				FA4B475F28E2ED520044FA32 /* UIView+Ext.swift in Sources */,
 				FAB6F67228CE27F6004AB524 /* UIImageView+Ext.swift in Sources */,
 				FAB6F67028CD3E53004AB524 /* PreviewFileController.swift in Sources */,
-				FA762CF028D7AF1B0051BEC3 /* BottomPopUpAlert.swift in Sources */,
+				FA762CF028D7AF1B0051BEC3 /* TopPopUpAlert.swift in Sources */,
 				FA045E8E28BF527D00A90DAA /* HomePageCoordinator.swift in Sources */,
 				FA4B477128E42FE00044FA32 /* ConnectServiceView.swift in Sources */,
 				FA381B2F28C7482700173499 /* SettingsPageCoordinator.swift in Sources */,
@@ -750,6 +768,7 @@
 				FA381B5228CB51B400173499 /* SFSafariViewController+Ext.swift in Sources */,
 				FA3001D328D3DA09005BE124 /* MoreOptionsController.swift in Sources */,
 				2EEFF36D28D0D48E00E62A09 /* PickerOptionsController.swift in Sources */,
+				FA25413728ECDDF300419534 /* SplashAnimator.swift in Sources */,
 				FA381B7E28CB7ABD00173499 /* XCAssets+Generated.swift in Sources */,
 				FA474CF828E8EDCD00FB7682 /* DropboxPreviewImageController.swift in Sources */,
 				FA4B476D28E42C240044FA32 /* ConnectServicesController.swift in Sources */,
@@ -758,7 +777,9 @@
 				FA474CF628E8E80E00FB7682 /* PreviewImageController.swift in Sources */,
 				FA762CF228D7BC420051BEC3 /* ManageAccessViewModel.swift in Sources */,
 				FAA7FF1328DE44550053FD0A /* DropboxMoreOptionsViewModel.swift in Sources */,
+				FA25414228EEBDA200419534 /* UIStackView+Ext.swift in Sources */,
 				2E6DE27228DB6DB600F272B4 /* DropboxViewModel.swift in Sources */,
+				FA25413B28ECE51F00419534 /* SplashController.swift in Sources */,
 				FAA3DB3128BE38A400F17548 /* GoogleDriveViewModel.swift in Sources */,
 				2E6DE26728DB5E2A00F272B4 /* DropboxController.swift in Sources */,
 				FA3001CE28D39EDC005BE124 /* PickerOptionsViewModel.swift in Sources */,
@@ -775,7 +796,6 @@
 				FA762CDB28D540BA0051BEC3 /* ManageAccessPopUpController.swift in Sources */,
 				FA4B477328E437EA0044FA32 /* ServiceModel.swift in Sources */,
 				FAA3DAB628BDFB3000F17548 /* ApplicationCoordinator.swift in Sources */,
-				FA474CFC28E9714500FB7682 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,34 +1067,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA381B3B28C899A300173499 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		FA25413C28ED68D100419534 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		FA4E5AD128E62B9D00AD857B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				kind = exactVersion;
+				version = 5.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA381B3C28C899A300173499 /* SnapKit */ = {
+		FA25413D28ED68D100419534 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA381B3B28C899A300173499 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = FA25413C28ED68D100419534 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		FA4E5AD228E62B9D00AD857B /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA4E5AD128E62B9D00AD857B /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,5 +1,5 @@
 //
-//  BottomPopUpAlert.swift
+//  TopPopUpAlert.swift
 //  Presentation
 //
 //  Created by Murad on 18.09.22.
@@ -30,7 +30,7 @@ class TopPopUpAlert: UIView {
         
         self.contentView.addSubview(view)
         
-        view.image = Asset.icCopy.image
+        view.image = Asset.Icons.icCopy.image
         view.tintColor = .white
         
         return view
@@ -62,6 +62,12 @@ class TopPopUpAlert: UIView {
             make.right.equalToSuperview().offset(-12)
             make.bottom.equalToSuperview().offset(-4)
         }
+    }
+    
+    func setupPopUp(with icon: UIImage, descriptionText: String, backgroundColor: UIColor) {
+        self.icon.image = icon
+        self.descriptionLabel.text = descriptionText
+        self.contentView.backgroundColor = backgroundColor
     }
     
     func show(viewController: UIViewController) {

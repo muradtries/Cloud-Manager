@@ -12,6 +12,7 @@ public enum EDropboxFileMimeType {
     case pdf(String)
     case document(String)
     case spreadSheet(String)
+    case audio(String)
     case image(String)
     case video(String)
     
@@ -24,6 +25,8 @@ public enum EDropboxFileMimeType {
         case .document(let type):
             return type
         case .spreadSheet(let type):
+            return type
+        case .audio(let type):
             return type
         case .image(let type):
             return type
@@ -42,6 +45,8 @@ public enum EDropboxFileMimeType {
             return type
         case .spreadSheet:
             return "xlsx"
+        case .audio(let type):
+            return type
         case .image(let type):
             return type
         case .video(let type):

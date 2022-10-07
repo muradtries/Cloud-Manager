@@ -35,7 +35,7 @@ class GoogleDriveRepoMockData: GoogleDriveRepoProtocol {
         self.syncInfoPromise
     }
     
-    func observeFiles(folderId: String) -> Observable<[GoogleDriveFileEntity]> {
+    func observeFiles(folderID: String) -> Observable<[GoogleDriveFileEntity]> {
         self.observeFileObservable.asObservable()
     }
     

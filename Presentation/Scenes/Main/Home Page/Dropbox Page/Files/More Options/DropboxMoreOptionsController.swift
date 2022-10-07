@@ -153,7 +153,7 @@ class DropboxMoreOptionsController: BaseViewController<DropboxMoreOptionsViewMod
         switch file.mimeType {
         case .folder:
             self.fileLastModificationDate.text = "Modified --"
-        case .pdf(_), .document(_), .spreadSheet(_), .image(_), .video(_):
+        case .pdf(_), .document(_), .spreadSheet(_), .audio(_), .image(_), .video(_):
             self.fileLastModificationDate.text = "Modified \(file.lastModified.stringFormatted)"
         }
     }
@@ -162,22 +162,25 @@ class DropboxMoreOptionsController: BaseViewController<DropboxMoreOptionsViewMod
         switch mimeType {
         case .folder:
             self.fileIcon.tintColor = .lightGray
-            return Asset.icFolder.image
+            return Asset.Icons.icFolder.image
         case .pdf:
             self.fileIcon.tintColor = .systemRed
-            return Asset.icFile.image
+            return Asset.Icons.icFile.image
         case .document:
             self.fileIcon.tintColor = .systemBlue
-            return Asset.icDocument.image
+            return Asset.Icons.icDocument.image
         case .spreadSheet:
             self.fileIcon.tintColor = .systemGreen
-            return Asset.icSpreadsheet.image
+            return Asset.Icons.icSpreadsheet.image
+        case .audio:
+            self.fileIcon.tintColor = .systemYellow
+            return Asset.Icons.icAudio.image
         case .image:
             self.fileIcon.tintColor = .systemPurple
-            return Asset.icImage.image
+            return Asset.Icons.icImage.image
         case .video:
             self.fileIcon.tintColor = .systemOrange
-            return Asset.icVideo.image
+            return Asset.Icons.icVideo.image
         }
     }
 }
@@ -201,12 +204,12 @@ extension DropboxMoreOptionsController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch pickerOptions[indexPath.row].icon {
-        case Asset.icEdit.image:
+        case Asset.Icons.icEdit.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) { [weak self] in
                 self?.viewModel.selectedRenama()
             }
-        case Asset.icDelete.image:
+        case Asset.Icons.icDelete.image:
             tableView.deselectRow(at: indexPath, animated: true)
             self.dismiss(animated: true) { [weak self] in
                 self?.viewModel.selectedDelete()

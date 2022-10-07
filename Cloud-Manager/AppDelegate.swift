@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var assembler: Assembler?
     var appCoordinator: AppCoordinator?
+    private var splashPresenter: SplashPresenterDescription? = SplashPresenter()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -43,11 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let assembler = assembler {
             self.appCoordinator = AppCoordinator(resolver: assembler.resolver)
-            self.appCoordinator?.start()
         }
         
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
+        
+        splashPresenter?.present()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.splashPresenter?.dismiss { [weak self] in
+                self?.splashPresenter = nil
+            }
+        }
+        
+        self.appCoordinator?.start()
         
         return true
     }

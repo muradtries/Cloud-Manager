@@ -56,7 +56,7 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         view.layer.cornerRadius = view.frame.width / 2
         view.layer.backgroundColor = UIColor.lightGray.cgColor
         view.tintColor = .darkGray
-        let image = Asset.icLock.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
+        let image = Asset.Icons.icLock.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
         view.contentMode = .center
         view.image = image
         
@@ -73,7 +73,7 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         button.setTitle("Anyone with link", for: .normal)
         button.titleLabel?.font = FontFamily.Poppins.regular.font(size: 14)
         
-        let oldImage = Asset.icExpandMore.image
+        let oldImage = Asset.Icons.icExpandMore.image
         let newImage = oldImage.resizedImage(Size: CGSize(width: 20, height: 20))
         
         button.setImage(newImage, for: .normal)
@@ -113,7 +113,7 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         button.setTitle("Viewer", for: .normal)
         button.titleLabel?.font = FontFamily.Poppins.regular.font(size: 14)
         
-        let oldImage = Asset.icExpandMore.image
+        let oldImage = Asset.Icons.icExpandMore.image
         let newImage = oldImage.resizedImage(Size: CGSize(width: 20, height: 20))
         
         button.setImage(newImage, for: .normal)
@@ -164,7 +164,7 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
             var configuration = UIButton.Configuration.bordered()
             configuration.baseBackgroundColor = .white
             configuration.buttonSize = .small
-            configuration.image = Asset.icLink.image.resizedImage(Size: CGSize(width: 16, height: 16))?.withTintColor(.systemBlue)
+            configuration.image = Asset.Icons.icLink.image.resizedImage(Size: CGSize(width: 16, height: 16))?.withTintColor(.systemBlue)
             configuration.imagePadding = 6
             configuration.imagePlacement = .leading
             configuration.attributedTitle = AttributedString("Copy link", attributes: AttributeContainer([NSAttributedString.Key.font: FontFamily.Poppins.medium.font(size: 14)]))
@@ -291,14 +291,14 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
     
     private func prepareForRestrictedStatus() {
         accessStatusIcon.backgroundColor = .lightGray
-        accessStatusIcon.image = Asset.icLock.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
+        accessStatusIcon.image = Asset.Icons.icLock.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
         scopeOptionsButton.setTitle("Restricted", for: .normal)
         accessRole.isHidden = true
     }
     
     private func prepareForPublicStatus() {
         accessStatusIcon.backgroundColor = .systemGreen.withAlphaComponent(0.5)
-        accessStatusIcon.image = Asset.icPublic.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.systemGreen)
+        accessStatusIcon.image = Asset.Icons.icPublic.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.systemGreen)
         scopeOptionsButton.setTitle("Anyone with link", for: .normal)
         accessRole.isHidden = false
     }

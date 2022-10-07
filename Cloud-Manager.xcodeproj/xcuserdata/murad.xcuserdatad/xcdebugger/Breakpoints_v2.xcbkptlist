@@ -331,8 +331,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "GoogleDriveController"
             landmarkType = "21">
          </BreakpointContent>
@@ -379,8 +379,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/HomePageViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "connectToDropbox(presenting:)"
             landmarkType = "7">
             <Locations>
@@ -415,22 +415,6 @@
                   offsetFromSymbolStart = "52">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "80116B20-34AD-49C1-945B-9AC96EAFEDEB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "syncFiles()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -549,14 +533,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "91BD5949-28A7-4670-B460-B1163BFE20C0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Data/Local Data Source/Dropbox/DropboxFileLocalDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "save(files:folderPath:)"
             landmarkType = "7">
             <Locations>
@@ -603,8 +587,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "didSelectFromDocuments()"
             landmarkType = "7">
          </BreakpointContent>
@@ -619,8 +603,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxFileListTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "onMoreButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -651,8 +635,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/HomePageController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "onTapGoogleDropboxInfo(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -667,8 +651,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -683,8 +667,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
@@ -731,8 +715,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
@@ -764,103 +748,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "32F4B1AA-F47A-411D-BDED-EC707419D609"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "32F4B1AA-F47A-411D-BDED-EC707419D609 - d42ca69883b8e2a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Presentation.GoogleDriveController.viewWillAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Presentation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "288">
-               </Location>
-               <Location
-                  uuid = "32F4B1AA-F47A-411D-BDED-EC707419D609 - 154449ec836fce6d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (()) -&gt; () in Presentation.GoogleDriveController.viewWillAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Presentation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6EA94FD1-5056-4E86-9F00-49F5B8831D99"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6EA94FD1-5056-4E86-9F00-49F5B8831D99 - d42ca69883b8e598"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Presentation.GoogleDriveController.viewWillAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Presentation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
-                  offsetFromSymbolStart = "492">
-               </Location>
-               <Location
-                  uuid = "6EA94FD1-5056-4E86-9F00-49F5B8831D99 - fb225d34a0972426"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (RxSwift.Event&lt;Swift.Array&lt;Domain.GoogleDriveFileEntity&gt;&gt;) -&gt; () in Presentation.GoogleDriveController.viewWillAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Presentation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "116">
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -885,16 +773,48 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7B23B9AF-AE4E-4DDB-B443-2B068B7A4B16"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7B23B9AF-AE4E-4DDB-B443-2B068B7A4B16 - d42ca69883b8e3e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Presentation.GoogleDriveController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Presentation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "7B23B9AF-AE4E-4DDB-B443-2B068B7A4B16 - d42ca69883b8e3e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Presentation.GoogleDriveController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Presentation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -907,8 +827,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "observeFiles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -927,6 +847,38 @@
             endingLineNumber = "71"
             landmarkName = "syncFiles()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "558E15A4-F4C6-49CC-82EA-9DF0F816CE16 - 88882a0471bff00c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Presentation.GoogleDriveViewModel.syncFiles() -&gt; ()"
+                  moduleName = "Presentation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "558E15A4-F4C6-49CC-82EA-9DF0F816CE16 - a4730ee2596cbaef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Presentation.GoogleDriveViewModel.syncFiles() -&gt; ()"
+                  moduleName = "Presentation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/Google%20Drive%20Page/Files/List/GoogleDriveViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -939,8 +891,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "observeFiles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -988,7 +940,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "58"
                   endingLineNumber = "58"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "88">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1005,7 +957,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
             endingLineNumber = "75"
-            landmarkName = "observeFiles(folderId:)"
+            landmarkName = "observeFiles(folderID:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1013,7 +965,7 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Data.GoogleDriveFileLocalDTO&gt;) -&gt; Swift.Array&lt;Domain.GoogleDriveFileEntity&gt; in Data.GoogleDriveRepo.observeFiles(folderId: Swift.String) -&gt; RxSwift.Observable&lt;Swift.Array&lt;Domain.GoogleDriveFileEntity&gt;&gt;"
+                  symbolName = "closure #1 (Swift.Array&lt;Data.GoogleDriveFileLocalDTO&gt;) -&gt; Swift.Array&lt;Domain.GoogleDriveFileEntity&gt; in Data.GoogleDriveRepo.observeFiles(folderID: Swift.String) -&gt; RxSwift.Observable&lt;Swift.Array&lt;Domain.GoogleDriveFileEntity&gt;&gt;"
                   moduleName = "Data"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/murad/Desktop/Cloud-Manager/Data/Repositories/Google%20Drive/GoogleDriveRepository.swift"
@@ -1028,7 +980,7 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Data.GoogleDriveFileLocalDTO) -&gt; Domain.GoogleDriveFileEntity in closure #1 (Swift.Array&lt;Data.GoogleDriveFileLocalDTO&gt;) -&gt; Swift.Array&lt;Domain.GoogleDriveFileEntity&gt; in Data.GoogleDriveRepo.observeFiles(folderId: Swift.String) -&gt; RxSwift.Observable&lt;Swift.Array&lt;Domain.GoogleDriveFileEntity&gt;&gt;"
+                  symbolName = "closure #1 (Data.GoogleDriveFileLocalDTO) -&gt; Domain.GoogleDriveFileEntity in closure #1 (Swift.Array&lt;Data.GoogleDriveFileLocalDTO&gt;) -&gt; Swift.Array&lt;Domain.GoogleDriveFileEntity&gt; in Data.GoogleDriveRepo.observeFiles(folderID: Swift.String) -&gt; RxSwift.Observable&lt;Swift.Array&lt;Domain.GoogleDriveFileEntity&gt;&gt;"
                   moduleName = "Data"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/murad/Desktop/Cloud-Manager/Data/Repositories/Google%20Drive/GoogleDriveRepository.swift"
@@ -1083,13 +1035,13 @@
             filePath = "Presentation/DI/PresentationAssembly.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "assemble(container:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "51C1231F-C022-4EB4-AD75-9F472488D481 - 7c49ecc8d3ecffb6"
+                  uuid = "51C1231F-C022-4EB4-AD75-9F472488D481 - 7c49ecc8d3ecff0d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1099,12 +1051,12 @@
                   urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/DI/PresentationAssembly.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
                   offsetFromSymbolStart = "336">
                </Location>
                <Location
-                  uuid = "51C1231F-C022-4EB4-AD75-9F472488D481 - c03dacb6fe8d2281"
+                  uuid = "51C1231F-C022-4EB4-AD75-9F472488D481 - c03dacb6fe8d2264"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1114,8 +1066,8 @@
                   urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/DI/PresentationAssembly.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
                   offsetFromSymbolStart = "48">
                </Location>
             </Locations>
@@ -1131,13 +1083,13 @@
             filePath = "Presentation/DI/PresentationAssembly.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "assemble(container:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8589A0C6-C100-4FF0-AC02-2C1E3999020C - 7c49ecc8d3ecff0d"
+                  uuid = "8589A0C6-C100-4FF0-AC02-2C1E3999020C - 7c49ecc8d3ecf8e0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1147,12 +1099,12 @@
                   urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/DI/PresentationAssembly.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
                   offsetFromSymbolStart = "420">
                </Location>
                <Location
-                  uuid = "8589A0C6-C100-4FF0-AC02-2C1E3999020C - 4bb3c0f4736bf0ac"
+                  uuid = "8589A0C6-C100-4FF0-AC02-2C1E3999020C - 4bb3c0f4736bf703"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1162,27 +1114,11 @@
                   urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/DI/PresentationAssembly.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "467C3C15-BBD6-4BCD-9C77-BE69B15ED6E4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Presentation/Scenes/Main/Home Page/HomePageController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1195,57 +1131,9 @@
             filePath = "Presentation/Scenes/Main/Home Page/HomePageController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6717A538-ED50-41C6-BA5A-49501694AAEF - dd772c7482432e3b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (()) -&gt; () in Presentation.HomePageController.viewWillAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Presentation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/HomePageController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "220">
-               </Location>
-               <Location
-                  uuid = "6717A538-ED50-41C6-BA5A-49501694AAEF - 5ace9d250065ba1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (()) -&gt; () in Presentation.HomePageController.viewWillAppear(Swift.Bool) -&gt; ()"
-                  moduleName = "Presentation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/HomePageController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F3BCD601-5D45-422B-971F-674F381802E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cloud-Manager/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1294,6 +1182,182 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93D396AA-B4C8-424B-837A-2661FD4B5E72"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scenes/Main/Home Page/HomePageController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "93D396AA-B4C8-424B-837A-2661FD4B5E72 - bab7c57201ae9163"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Presentation.HomePageController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Presentation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/HomePageController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "93D396AA-B4C8-424B-837A-2661FD4B5E72 - dd772c7482432e79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (()) -&gt; () in Presentation.HomePageController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Presentation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/murad/Desktop/Cloud-Manager/Presentation/Scenes/Main/Home%20Page/HomePageController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "493A67E4-F44B-4776-B266-0A6B0C894152"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scenes/Main/Home Page/HomePageController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "916DCDCF-376D-4299-BC91-016FE04E80F1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
+            landmarkName = "didApprovedRenaming(to:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7409776-6EC7-4297-B3C5-8C6E2A25B146"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBBDC16D-E5E1-40C9-8045-D5429AA53FD2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C3A068C-2AD0-44E8-8776-F5E4E1634800"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Domain/Use Cases/Google Drive/SyncGoogleDriveFilesUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "sync(folderID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8486ABE5-256B-41B9-818F-4E59745296C2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Data/Local Data Source/Google Drive/GoogleDriveFileLocalDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "save(files:folderID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2334F481-9D9B-4801-B4C2-2A391F68FF67"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Data/Local Data Source/Google Drive/GoogleDriveFileLocalDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "observe(folderID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A48E4CB-7731-489D-9C74-226C2E02ADED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Data/Local Data Source/Google Drive/GoogleDriveFileLocalDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "observe(folderID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

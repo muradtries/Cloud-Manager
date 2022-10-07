@@ -1,52 +1,20 @@
-name: Build and Test
-
+name: Build
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
-      
+    types: [opened, synchronize, reopened]
 jobs:
-
-  test:
-    name: Run on MacOS
-    runs-on: macos-12
-
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
     steps:
-
-      - name: Checkout the code
-        uses: actions/checkout@v3
-
-      - name: XCode Setup
-        uses: maxim-lobanov/setup-xcode@v1
+      - uses: actions/checkout@v2
         with:
-          xcode-version: '14.0'
-
-      - name: Bundle install
-        run: bundle install
-
-      - name: Install Homebrew
-        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        
-      - name: Setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install Swiftgen
-        run: brew install swiftgen
-
-      - name: Install lizard
-        run: pip install lizard
-        
-      - name: Install Sonar scanner
-        run: brew install sonar-scanner
-
-      - name: Build and test
-        run: |
-          bundle exec fastlane test \
-          sonar_login:"$SONAR_TOKEN"
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

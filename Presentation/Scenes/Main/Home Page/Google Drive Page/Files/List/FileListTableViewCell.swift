@@ -60,8 +60,6 @@ class FileListTableViewCell: UITableViewCell {
     private lazy var fileName: UILabel = {
         let label = UILabel()
         
-//        self.contentView.addSubview(label)
-        
         label.font = FontFamily.Poppins.regular.font(size: 16)
         label.textColor = .black
         
@@ -71,7 +69,7 @@ class FileListTableViewCell: UITableViewCell {
     private lazy var starIcon: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 12, height: 12))
         
-        view.image = Asset.icStarFilled.image.resizedImage(Size: CGSize(width: 12, height: 12))?.withTintColor(.lightGray).withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: -2, right: 0))
+        view.image = Asset.Icons.icStarFilled.image.resizedImage(Size: CGSize(width: 12, height: 12))?.withTintColor(.lightGray).withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: -2, right: 0))
         view.contentMode = .center
         
         return view
@@ -80,7 +78,7 @@ class FileListTableViewCell: UITableViewCell {
     private lazy var groupIcon: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         
-        view.image = Asset.icGroup.image
+        view.image = Asset.Icons.icGroup.image
         view.tintColor = .lightGray
         
         return view
@@ -99,8 +97,6 @@ class FileListTableViewCell: UITableViewCell {
     
     lazy var progressView: UIProgressView = {
         let view = UIProgressView(frame: CGRect(x: 0, y: 0, width: 128, height: 4))
-        
-//        self.contentView.addSubview(view)
         
         view.layer.cornerRadius = view.frame.height / 2
         view.backgroundColor = .lightGray.withAlphaComponent(0.3)
@@ -171,6 +167,15 @@ class FileListTableViewCell: UITableViewCell {
     
     }
     
+    func updateStarIcon(state: Bool) {
+        if state {
+            self.subStackView.addArrangedSubview(starIcon)
+            self.subStackView.reverseSubviewsZIndex()
+        } else {
+            self.starIcon.removeFromSuperview()
+        }
+    }
+    
     private func setupCellConstraints() {
         self.backgroundColor = .clear
         
@@ -183,12 +188,6 @@ class FileListTableViewCell: UITableViewCell {
             make.left.equalToSuperview()
             make.centerY.equalToSuperview()
         }
-        
-//        self.fileName.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(12)
-//            make.left.equalTo(self.fileIcon.snp.right).offset(12)
-//            make.right.equalTo(self.moreButton.snp.left).offset(-4)
-//        }
         
         self.starIcon.snp.makeConstraints { make in
             make.width.height.equalTo(12)
@@ -204,13 +203,6 @@ class FileListTableViewCell: UITableViewCell {
             make.right.equalTo(self.moreButton.snp.left).offset(-4)
             make.bottom.equalToSuperview().offset(-12)
         }
-        
-//        self.subStackView.snp.makeConstraints { make in
-//            make.top.equalTo(fileName.snp.bottom).offset(4)
-//            make.left.equalTo(self.fileName.snp.left)
-//            make.right.lessThanOrEqualTo(self.moreButton.snp.left).offset(-4)
-//            make.bottom.equalToSuperview().offset(-12)
-//        }
         
         self.progressView.snp.makeConstraints { make in
             make.height.equalTo(2.5)
@@ -228,22 +220,22 @@ class FileListTableViewCell: UITableViewCell {
         switch mimeType {
         case .folder:
             self.fileIcon.tintColor = .lightGray
-            return Asset.icFolder.image
+            return Asset.Icons.icFolder.image
         case .pdf:
             self.fileIcon.tintColor = .systemRed
-            return Asset.icFile.image
+            return Asset.Icons.icFile.image
         case .document:
             self.fileIcon.tintColor = .systemBlue
-            return Asset.icDocument.image
+            return Asset.Icons.icDocument.image
         case .spreadSheet:
             self.fileIcon.tintColor = .systemGreen
-            return Asset.icSpreadsheet.image
+            return Asset.Icons.icSpreadsheet.image
         case .image:
             self.fileIcon.tintColor = .systemPurple
-            return Asset.icImage.image
+            return Asset.Icons.icImage.image
         case .video:
             self.fileIcon.tintColor = .systemOrange
-            return Asset.icVideo.image
+            return Asset.Icons.icVideo.image
         }
     }
     

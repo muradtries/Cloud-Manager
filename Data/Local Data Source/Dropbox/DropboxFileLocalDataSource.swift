@@ -62,21 +62,26 @@ class DropboxFileLocalDataSource: DropboxFileLocalDataSourceProtocol {
             .filter { localDTO in
                 localDTO.parentFolderPath == folderPath
             }
+        
         do { 
             try defaultRealm.write {
                 defaultRealm.delete(oldObjs)
             }
             
-            let localDTOs = files.map { remoteDTO -> DropboxFileLocalDTO in
-                let fileObj = DropboxFileLocalDTO()
-                fileObj.name = remoteDTO.name
-                fileObj.identifier = remoteDTO.identifier
-                fileObj.parentFolderPath = folderPath
-                fileObj.path = remoteDTO.path
-                fileObj.mimeType = remoteDTO.mimeType
-                fileObj.lastModified = remoteDTO.lastModified
-                return fileObj
-            }
+            let localDTOs = files
+                .map { remoteDTO -> DropboxFileLocalDTO in
+                    let fileObj = DropboxFileLocalDTO()
+                    fileObj.name = remoteDTO.name
+                    fileObj.identifier = remoteDTO.identifier
+                    fileObj.parentFolderPath = folderPath
+                    fileObj.path = remoteDTO.path
+                    fileObj.mimeType = remoteDTO.mimeType
+                    fileObj.lastModified = remoteDTO.lastModified
+                    return fileObj
+                }
+                .sorted { lhs, rhs in
+                    lhs.name.lowercased() < rhs.name.lowercased()
+                }
             
             try defaultRealm.write {
                 defaultRealm.add(localDTOs, update: .modified)
