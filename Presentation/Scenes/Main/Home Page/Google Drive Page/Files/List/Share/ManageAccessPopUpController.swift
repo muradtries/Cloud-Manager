@@ -11,7 +11,7 @@ import RxCocoa
 
 class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
     
-    var accessStatus: ScopeOption?
+    var accessStatus: AccessOptions?
     
     private lazy var contentView: UIView = {
         let view = UIView()
@@ -56,7 +56,7 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         view.layer.cornerRadius = view.frame.width / 2
         view.layer.backgroundColor = UIColor.lightGray.cgColor
         view.tintColor = .darkGray
-        let image = Asset.Icons.icLock.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
+        let image = Asset.Icons.icLock.image.resizedImage(size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
         view.contentMode = .center
         view.image = image
         
@@ -70,11 +70,11 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         
         button.contentHorizontalAlignment = .left
         
-        button.setTitle("Anyone with link", for: .normal)
+        button.setTitle(AccessOptions.restricted.title, for: .normal)
         button.titleLabel?.font = FontFamily.Poppins.regular.font(size: 14)
         
         let oldImage = Asset.Icons.icExpandMore.image
-        let newImage = oldImage.resizedImage(Size: CGSize(width: 20, height: 20))
+        let newImage = oldImage.resizedImage(size: CGSize(width: 20, height: 20))
         
         button.setImage(newImage, for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
@@ -84,12 +84,12 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         button.addTarget(self, action: #selector(onTapScopeOptions), for: .touchUpInside)
         button.showsMenuAsPrimaryAction = true
         
-        let restrictedAction : UIAction = .init(title: "Restricted", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
+        let restrictedAction : UIAction = .init(title: AccessOptions.restricted.title, image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
             self?.accessStatus = .restricted
             self?.prepareForRestrictedStatus()
         })
         
-        let anyoneWithLinkAction : UIAction = .init(title: "Anyone with link", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
+        let anyoneWithLinkAction : UIAction = .init(title: AccessOptions.anyoneWithLink(.viewer).title, image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
             self?.accessStatus = .anyoneWithLink(.viewer)
             self?.prepareForPublicStatus()
         })
@@ -104,17 +104,18 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
     }()
     
     private lazy var accessRole: UIButton = {
+        
         let button = UIButton()
         
         self.contentView.addSubview(button)
         
         button.contentHorizontalAlignment = .left
         
-        button.setTitle("Viewer", for: .normal)
+        button.setTitle(AccessRoles.viewer.rawValue, for: .normal)
         button.titleLabel?.font = FontFamily.Poppins.regular.font(size: 14)
         
         let oldImage = Asset.Icons.icExpandMore.image
-        let newImage = oldImage.resizedImage(Size: CGSize(width: 20, height: 20))
+        let newImage = oldImage.resizedImage(size: CGSize(width: 20, height: 20))
         
         button.setImage(newImage, for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
@@ -124,19 +125,19 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         button.addTarget(self, action: #selector(onTapScopeOptions), for: .touchUpInside)
         button.showsMenuAsPrimaryAction = true
         
-        let viewerAction : UIAction = .init(title: "Viewer", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
+        let viewerAction : UIAction = .init(title: AccessRoles.viewer.rawValue, image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
             self?.accessStatus = .anyoneWithLink(.viewer)
-            self?.accessRole.setTitle("Viewer", for: .normal)
+            self?.accessRole.setTitle(AccessRoles.viewer.rawValue, for: .normal)
         })
         
-        let commenterAction : UIAction = .init(title: "Commenter", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
+        let commenterAction : UIAction = .init(title: AccessRoles.commenter.rawValue, image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
             self?.accessStatus = .anyoneWithLink(.commenter)
-            self?.accessRole.setTitle("Commenter", for: .normal)
+            self?.accessRole.setTitle(AccessRoles.commenter.rawValue, for: .normal)
         })
         
-        let editorAction : UIAction = .init(title: "Editor", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
+        let editorAction : UIAction = .init(title: AccessRoles.editor.rawValue, image: nil, identifier: nil, discoverabilityTitle: nil, attributes: .init(), handler: { [weak self](action) in
             self?.accessStatus = .anyoneWithLink(.editor)
-            self?.accessRole.setTitle("Editor", for: .normal)
+            self?.accessRole.setTitle(AccessRoles.editor.rawValue, for: .normal)
         })
         
         let actions = [viewerAction, commenterAction, editorAction]
@@ -160,19 +161,21 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.tintColor = .systemBlue
         
+        let copylink = "Copy link"
+        
         if #available(iOS 15.0, *) {
             var configuration = UIButton.Configuration.bordered()
             configuration.baseBackgroundColor = .white
             configuration.buttonSize = .small
-            configuration.image = Asset.Icons.icLink.image.resizedImage(Size: CGSize(width: 16, height: 16))?.withTintColor(.systemBlue)
+            configuration.image = Asset.Icons.icLink.image.resizedImage(size: CGSize(width: 16, height: 16))?.withTintColor(.systemBlue)
             configuration.imagePadding = 6
             configuration.imagePlacement = .leading
-            configuration.attributedTitle = AttributedString("Copy link", attributes: AttributeContainer([NSAttributedString.Key.font: FontFamily.Poppins.medium.font(size: 14)]))
+            configuration.attributedTitle = AttributedString(copylink, attributes: AttributeContainer([NSAttributedString.Key.font: FontFamily.Poppins.medium.font(size: 14)]))
             configuration.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
             button.configuration = configuration
         } else {
-            button.setTitle("Copy link", for: .normal)
-            button.setTitle("Copy link", for: .selected)
+            button.setTitle(copylink, for: .normal)
+            button.setTitle(copylink, for: .selected)
             
             button.setTitleColor(.systemBlue, for: .normal)
             button.setTitleColor(.systemBlue, for: .selected)
@@ -291,15 +294,15 @@ class ManageAccessPopUpController: BaseViewController<ManageAccessViewModel> {
     
     private func prepareForRestrictedStatus() {
         accessStatusIcon.backgroundColor = .lightGray
-        accessStatusIcon.image = Asset.Icons.icLock.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
-        scopeOptionsButton.setTitle("Restricted", for: .normal)
+        accessStatusIcon.image = Asset.Icons.icLock.image.resizedImage(size: CGSize(width: 18, height: 18))?.withTintColor(.darkGray)
+        scopeOptionsButton.setTitle(AccessOptions.restricted.title, for: .normal)
         accessRole.isHidden = true
     }
     
     private func prepareForPublicStatus() {
         accessStatusIcon.backgroundColor = .systemGreen.withAlphaComponent(0.5)
-        accessStatusIcon.image = Asset.Icons.icPublic.image.resizedImage(Size: CGSize(width: 18, height: 18))?.withTintColor(.systemGreen)
-        scopeOptionsButton.setTitle("Anyone with link", for: .normal)
+        accessStatusIcon.image = Asset.Icons.icPublic.image.resizedImage(size: CGSize(width: 18, height: 18))?.withTintColor(.systemGreen)
+        scopeOptionsButton.setTitle(AccessOptions.anyoneWithLink(.viewer).title, for: .normal)
         accessRole.isHidden = false
     }
     

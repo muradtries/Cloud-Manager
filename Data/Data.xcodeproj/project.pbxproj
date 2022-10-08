@@ -50,6 +50,7 @@
 		FAA7FEED28DBCF660053FD0A /* DropboxFileRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEEC28DBCF660053FD0A /* DropboxFileRemoteDTO.swift */; };
 		FAA7FEEF28DBCF700053FD0A /* DropboxFileLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEEE28DBCF700053FD0A /* DropboxFileLocalDTO.swift */; };
 		FAA7FEF528DCD7360053FD0A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FEF428DCD7360053FD0A /* String+Ext.swift */; };
+		FAC1293B28F1D37C00E9144B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1293A28F1D37C00E9144B /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		FAA7FEEC28DBCF660053FD0A /* DropboxFileRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileRemoteDTO.swift; sourceTree = "<group>"; };
 		FAA7FEEE28DBCF700053FD0A /* DropboxFileLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxFileLocalDTO.swift; sourceTree = "<group>"; };
 		FAA7FEF428DCD7360053FD0A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		FAC1293A28F1D37C00E9144B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				FA04606E28C5004100A90DAA /* Array+Ext.swift */,
 				FA762CFF28D916FB0051BEC3 /* URL+Ext.swift */,
 				FAA7FEF428DCD7360053FD0A /* String+Ext.swift */,
+				FAC1293A28F1D37C00E9144B /* Configuration.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				FAA7FEF528DCD7360053FD0A /* String+Ext.swift in Sources */,
 				2E402D3828CCED5C0029AA8F /* DomainToRemoteMappers.swift in Sources */,
 				2EC043E528E358DD00B878D4 /* RemoteToDomainMappers.swift in Sources */,
+				FAC1293B28F1D37C00E9144B /* Configuration.swift in Sources */,
 				FA762D0528D91BFD0051BEC3 /* GoogleDrivePermissionRemoteDTO.swift in Sources */,
 				FA045F4528C1184A00A90DAA /* GoogleDriveFileLocalDTO.swift in Sources */,
 				2EC043E328E356F900B878D4 /* UploadProgressRemoteDTO.swift in Sources */,

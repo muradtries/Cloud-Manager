@@ -115,13 +115,13 @@ class DropboxViewModel {
 }
 
 extension DropboxViewModel {
-    func prepareMediaForUpload(url: URL) -> [String: Any] {
+    func prepareMediaForUpload(url: URL) throws -> [String: Any] {
         var dict: [String: Any] = [:]
         
         dict["fileName"] = url.lastPathComponent
         dict["fileExtension"] = url.pathExtension
         let _ = url.startAccessingSecurityScopedResource()
-        dict["fileData"] = try! Data(contentsOf: url)
+        dict["fileData"] = try Data(contentsOf: url)
         let _ = url.startAccessingSecurityScopedResource()
         
         return dict

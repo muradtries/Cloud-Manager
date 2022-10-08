@@ -22,8 +22,8 @@ class SettingsController: BaseViewController<SettingsPageViewModel> {
         button.setTitle("Clear cache", for: .normal)
         button.titleLabel?.font = FontFamily.Poppins.medium.font(size: 16)
         button.tintColor = .systemRed
-        button.setImage(Asset.Icons.icDelete.image.resizedImage(Size: CGSize(width: 20, height: 20))?.withTintColor(.systemRed), for: .normal)
-        button.setImage(Asset.Icons.icDelete.image.resizedImage(Size: CGSize(width: 20, height: 20))?.withTintColor(.systemRed), for: .highlighted)
+        button.setImage(Asset.Icons.icDelete.image.resizedImage(size: CGSize(width: 20, height: 20))?.withTintColor(.systemRed), for: .normal)
+        button.setImage(Asset.Icons.icDelete.image.resizedImage(size: CGSize(width: 20, height: 20))?.withTintColor(.systemRed), for: .highlighted)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
         button.setTitleColor(UIColor.systemRed, for: .normal)
         button.addTarget(self, action: #selector(onClearCache), for: .touchUpInside)

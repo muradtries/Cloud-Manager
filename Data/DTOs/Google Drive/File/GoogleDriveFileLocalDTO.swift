@@ -21,16 +21,17 @@ public class GoogleDriveFileLocalDTO: Object {
     @Persisted var permission: GoogleDrivePermissionLocalDTO?
     @Persisted var lastModified: Date = Date()
     
-    func setData(identifier: String,
-                 folderID: String,
-                 name: String,
-                 mimeType: String,
-                 trashed: Bool,
-                 starred: Bool,
-                 shared: Bool,
-                 webContentLink: String,
-                 permission: GoogleDrivePermissionLocalDTO,
-                 lastModified: Date) {
+    convenience init(identifier: String,
+                     folderID: String,
+                     name: String,
+                     mimeType: String,
+                     trashed: Bool,
+                     starred: Bool,
+                     shared: Bool,
+                     webContentLink: String,
+                     permission: GoogleDrivePermissionLocalDTO? = nil,
+                     lastModified: Date) {
+        self.init()
         self.identifier = identifier
         self.folderID = folderID
         self.name = name

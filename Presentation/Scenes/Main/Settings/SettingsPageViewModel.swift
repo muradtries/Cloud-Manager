@@ -16,14 +16,14 @@ class SettingsPageViewModel {
         
         let documentsURL: URL = try manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         
-        print("DOCUMENTS SUBDIR-S \(try! documentsURL.subDirectories())")
+        print("DOCUMENTS SUBDIR-S \(try documentsURL.subDirectories())")
         
         let downloadedDocumentsURL: URL = documentsURL.appendingPathComponent(".downloaded_files")
         
-        print("DOCUMENTS SUBDIR-S \(try! documentsURL.subDirectories())")
+        print("DOCUMENTS SUBDIR-S \(try documentsURL.subDirectories())")
         
         try FileManager.default.removeItem(at: downloadedDocumentsURL)
         
-        print("DOCUMENTS SUBDIR-S \(try! documentsURL.subDirectories())")
+        print("DOCUMENTS SUBDIR-S \(try documentsURL.subDirectories())")
     }
 }

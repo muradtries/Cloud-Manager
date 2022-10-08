@@ -11,7 +11,11 @@ import RxRelay
 import Promises
 import GoogleSignIn
 import GoogleAPIClientForREST_Drive
-import Reachability
+
+enum Placeholder: String {
+    case notFound = "Not Found"
+    case null = "Null"
+}
 
 class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
 
@@ -26,7 +30,6 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
     }
     
     func restoreUser() -> Promise<Void> {
-        
         let promise: Promise<Void> = .pending()
         
         let restore: Promise<GIDGoogleUser> = .pending()
@@ -72,15 +75,20 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
                     promise.reject(error!)
                     return
                 }
-                let result = result as? GTLRDrive_About
+                
+                guard let result = result as? GTLRDrive_About else {
+                    promise.reject(error!)
+                    return
+                }
+                
                 let remoteDTO = GoogleDriveInfoRemoteDTO(
-                    ownerDisplayName: result?.user?.displayName ?? "Not found",
-                    profilePhotoLink: result?.user?.photoLink ?? "Not found",
-                    ownerEmailAdress: result?.user?.emailAddress ?? "Not found",
-                    storageLimit: result?.storageQuota?.limit?.stringValue ?? "Null",
-                    storageUsage: result?.storageQuota?.usage?.stringValue ?? "Null",
-                    storageUsageInDrive: result?.storageQuota?.usageInDrive?.stringValue ?? "Null",
-                    storageUsageInTrash: result?.storageQuota?.usageInDriveTrash?.stringValue ?? "Null"
+                    ownerDisplayName: result.user?.displayName ?? Placeholder.notFound.rawValue,
+                    profilePhotoLink: result.user?.photoLink ?? Placeholder.notFound.rawValue,
+                    ownerEmailAdress: result.user?.emailAddress ?? Placeholder.notFound.rawValue,
+                    storageLimit: result.storageQuota?.limit?.stringValue ?? Placeholder.null.rawValue,
+                    storageUsage: result.storageQuota?.usage?.stringValue ?? Placeholder.null.rawValue,
+                    storageUsageInDrive: result.storageQuota?.usageInDrive?.stringValue ?? Placeholder.null.rawValue,
+                    storageUsageInTrash: result.storageQuota?.usageInDriveTrash?.stringValue ?? Placeholder.null.rawValue
                 )
 
                 promise.fulfill(remoteDTO)
@@ -103,40 +111,50 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
         
         self.restoreUser().then { _ in
             self.service.executeQuery(query) { (ticket, result, error) in
-                let resultList = result as? GTLRDrive_FileList
+                guard let result = result as? GTLRDrive_FileList else {
+                    promise.reject(NSError(domain: "fetchFiles", code: 1))
+                    return
+                }
+                
+                let files = result.files.map { $0 }
+                
+                guard let files = files else {
+                    promise.reject(NSError(domain: "filesConversion", code: 1))
+                    return
+                }
+                
                 var fileList: [GoogleDriveFileRemoteDTO] = []
-                var _ = resultList?.files.map({ list in
-                    list.map { file in
-                        var permissionRole = ""
-                        var permissionType = ""
-                        let permissionsList = file.permissions!.filter { permission in
-                            permission.type == "anyone"
-                        }
-                        
-                        if permissionsList.isEmpty {
-                            let _ = file.permissions?.filter { permission in
-                                permission.role == "owner" && permission.type == "user"
-                            }.map { permission in
-                                permissionType = permission.type ?? "user"
-                                permissionRole = permission.role ?? "owner"
-                            }
-                        } else {
-                            permissionType = file.permissions?.first?.type ?? ""
-                            permissionRole = file.permissions?.first?.role ?? ""
-                        }
-                        
-                        let fileDTO = GoogleDriveFileRemoteDTO(identifier: file.identifier!,
-                                                               name: file.name!,
-                                                               mimeType: file.mimeType!,
-                                                               trashed: file.trashed!.boolValue,
-                                                               starred: file.starred!.boolValue,
-                                                               shared: file.shared!.boolValue,
-                                                               webContentLink: file.webViewLink!,
-                                                               permission: GoogleDrivePermissionRemoteDTO(type: permissionType, role: permissionRole),
-                                                               lastModified: file.modifiedTime!.date)
-                        fileList.append(fileDTO)
+                
+                for file in files {
+                    var permissionRole = ""
+                    var permissionType = ""
+                    let permissionsList = file.permissions!.filter { permission in
+                        permission.type == "anyone"
                     }
-                })
+                    
+                    if permissionsList.isEmpty {
+                        let _ = file.permissions?.filter { permission in
+                            permission.role == "owner" && permission.type == "user"
+                        }.map { permission in
+                            permissionType = permission.type ?? "user"
+                            permissionRole = permission.role ?? "owner"
+                        }
+                    } else {
+                        permissionType = file.permissions?.first?.type ?? ""
+                        permissionRole = file.permissions?.first?.role ?? ""
+                    }
+                    
+                    let fileDTO = GoogleDriveFileRemoteDTO(identifier: file.identifier!,
+                                                           name: file.name!,
+                                                           mimeType: file.mimeType!,
+                                                           trashed: file.trashed!.boolValue,
+                                                           starred: file.starred!.boolValue,
+                                                           shared: file.shared!.boolValue,
+                                                           webContentLink: file.webViewLink!,
+                                                           permission: GoogleDrivePermissionRemoteDTO(type: permissionType, role: permissionRole),
+                                                           lastModified: file.modifiedTime!.date)
+                    fileList.append(fileDTO)
+                }
                 
                 promise.fulfill(fileList)
             }
@@ -284,7 +302,6 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
         return promise
     }
     
-    
     private func writeToDisk(data: Data, fileName: String, mimeType: String) throws {
         
         let fileNameWithoutExtension = (fileName as NSString).deletingPathExtension
@@ -295,7 +312,7 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
         
         let documentsURL: URL = try manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         
-        print("DOCUMENTS SUBDIR-S \(try! documentsURL.subDirectories())")
+        print("DOCUMENTS SUBDIR-S \(try documentsURL.subDirectories())")
         
         let downloadedDocumentsURL: URL = documentsURL.appendingPathComponent(".downloaded_files")
         
@@ -306,7 +323,7 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
             )
         }
         
-        print("DOCUMENTS SUBDIR-S \(try! documentsURL.subDirectories())")
+        print("DOCUMENTS SUBDIR-S \(try documentsURL.subDirectories())")
         
         let fileURL = downloadedDocumentsURL.appendingPathComponent("\(fileNameWithoutExtension)\(mimeType)")
         try data.write(to: fileURL)
@@ -317,24 +334,5 @@ class GoogleDriveFileRemoteDataSource: GoogleDriveFileRemoteDataSourceProtocol {
     
     deinit {
         print("GOOGLE DRIVE REMOTE DATA SOURCE IS DEALLOCATED")
-    }
-}
-
-extension GoogleDriveFileRemoteDataSource {
-    func isNetworkAvailable() throws -> Bool {
-        let reachability = try Reachability()
-        var state: Bool?
-        
-        reachability.whenReachable = { _ in
-            print("Reachable")
-            state = true
-        }
-        
-        reachability.whenUnreachable = { _ in
-            print("Unreachable")
-            state = false
-        }
-        
-        return state ?? false
     }
 }

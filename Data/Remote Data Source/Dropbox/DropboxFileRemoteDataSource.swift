@@ -212,7 +212,7 @@ extension DropboxFileRemoteDataSource {
         
         let documentsURL: URL = try manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         
-        print("DOCUMENTS SUBDIR-S \(try! documentsURL.subDirectories())")
+        print("DOCUMENTS SUBDIR-S \(try documentsURL.subDirectories())")
         
         let downloadedDocumentsURL: URL = documentsURL.appendingPathComponent(".downloaded_files")
         
@@ -223,7 +223,7 @@ extension DropboxFileRemoteDataSource {
             )
         }
         
-        print("DOCUMENTS SUBDIR-S \(try! documentsURL.subDirectories())")
+        print("DOCUMENTS SUBDIR-S \(try documentsURL.subDirectories())")
         
         let fileURL = downloadedDocumentsURL.appendingPathComponent("\(fileNameWithoutExtension)\(mimeType)")
         try data.write(to: fileURL)

@@ -33,7 +33,9 @@ public final class SplashPresenter: SplashPresenterDescription {
         return splashWindow
     }()
     
-    public init() { }
+    public init() {
+        // making initializer accessible
+    }
     
     // MARK: - Helpers
     

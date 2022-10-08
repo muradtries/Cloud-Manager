@@ -98,11 +98,11 @@ class ConnectServiceView: UIView {
         case .connected:
             self.serviceName.text = "Disconnect \(service.name)"
             self.serviceName.textColor = .systemRed
-            self.cloudIcon.image = Asset.Icons.icCloudOn.image.resizedImage(Size: CGSize(width: 24, height: 24))?.withTintColor(.systemGreen)
+//            self.cloudIcon.image = Asset.Icons.icCloudOn.image.resizedImage(size: CGSize(width: 24, height: 24))?.withTintColor(.systemGreen)
         case .disconnected:
             self.serviceName.text = "Connect \(service.name)"
             self.serviceName.textColor = .systemGreen
-            self.cloudIcon.image = Asset.Icons.icCloudOff.image.resizedImage(Size: CGSize(width: 24, height: 24))?.withTintColor(.systemRed)
+            self.cloudIcon.image = Asset.Icons.icCloudOff.image.resizedImage(size: CGSize(width: 24, height: 24))?.withTintColor(.systemRed)
         }
     }
     

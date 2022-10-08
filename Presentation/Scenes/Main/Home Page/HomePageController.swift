@@ -48,7 +48,7 @@ class HomePageController: BaseViewController<HomePageViewModel> {
     private lazy var disclaimerImage: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         
-        view.image = Asset.Media.comingSoon.image.resizedImage(Size: CGSize(width: 300, height: 300))
+        view.image = Asset.Media.comingSoon.image.resizedImage(size: CGSize(width: 300, height: 300))
         view.contentMode = .scaleAspectFill
         
         return view
@@ -60,7 +60,7 @@ class HomePageController: BaseViewController<HomePageViewModel> {
         label.font = FontFamily.Poppins.regular.font(size: 16)
         label.textColor = .darkText
         
-        let imageAttachment = NSTextAttachment(image: (Asset.Icons.icHub.image.resizedImage(Size: CGSize(width: 15, height: 15))?.withTintColor(.systemBlue))!)
+        let imageAttachment = NSTextAttachment(image: (Asset.Icons.icHub.image.resizedImage(size: CGSize(width: 15, height: 15))?.withTintColor(.systemBlue))!)
         imageAttachment.bounds = CGRect(x: 0, y: -2, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
         
         let attachmentString = NSAttributedString(attachment: imageAttachment)
@@ -196,7 +196,7 @@ class HomePageController: BaseViewController<HomePageViewModel> {
                                                                         NSAttributedString.Key.foregroundColor:
                                                                             UIColor.darkText]
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Asset.Icons.icHub.image.resizedImage(Size: CGSize(width: 28, height: 28)), style: .plain, target: self, action: #selector(onTapAddButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Asset.Icons.icHub.image.resizedImage(size: CGSize(width: 28, height: 28)), style: .plain, target: self, action: #selector(onTapAddButton))
     }
     
     override func setupUI() {

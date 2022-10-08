@@ -26,7 +26,7 @@ class DropboxController: BaseViewController<DropboxViewModel> {
                                                                     path: "",
                                                                     mimeType: .image(""))
     private var selectedFileIndexPathRow: Int?
-    private var observable: Observable<UploadProgressEntity>?
+    private var observableProgress: Observable<UploadProgressEntity>?
     
     private lazy var filesAndFoldersList: [[DropboxFileEntity]] = [[],[]] {
         didSet {
@@ -69,7 +69,7 @@ class DropboxController: BaseViewController<DropboxViewModel> {
     private lazy var disclaimerImage: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         
-        view.image = Asset.Media.emptyFolder.image.resizedImage(Size: CGSize(width: 300, height: 300))
+        view.image = Asset.Media.emptyFolder.image.resizedImage(size: CGSize(width: 300, height: 300))
         view.contentMode = .scaleAspectFill
         
         return view
@@ -249,7 +249,7 @@ class DropboxController: BaseViewController<DropboxViewModel> {
             self.viewModel.syncFiles()
         }
         
-        self.observable = observable
+        self.observableProgress = observable
         
         let uploadSubscription = observable
             .subscribe { receivedProgress in
@@ -288,15 +288,6 @@ extension DropboxController: UITableViewDelegate, UITableViewDataSource {
             cell.setupCell(file: filesAndFoldersList[indexPath.section][indexPath.row], state: .uploading)
             cell.delegate = self
             cell.isUserInteractionEnabled = false
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(DropboxFileListTableViewCell.self)") as! DropboxFileListTableViewCell
-            cell.setupCell(file: filesAndFoldersList[indexPath.section][indexPath.row])
-            cell.delegate = self
-            cell.isUserInteractionEnabled = true
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = .lightGray.withAlphaComponent(0.1)
-            cell.selectedBackgroundView = bgColorView
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(DropboxFileListTableViewCell.self)") as! DropboxFileListTableViewCell
@@ -359,7 +350,7 @@ extension DropboxController: DropboxMoreOptionsDelegate {
         popUpVC.delegate = self
         popUpVC.modalPresentationStyle = .overFullScreen
         popUpVC.modalTransitionStyle = .crossDissolve
-        let isFolder = selectedFile.mimeType.toFileExtension.isEmpty ? true : false
+        let isFolder = selectedFile.mimeType.toFileExtension.isEmpty
         popUpVC.putCurrentNameIntoField(name: self.selectedFile.name, isFolder: isFolder)
         self.present(popUpVC, animated: true)
     }
@@ -418,8 +409,15 @@ extension DropboxController: PHPickerViewControllerDelegate {
                 guard let url = url else {
                     return
                 }
+                
+                var dict = [:]
+                
+                do {
+                    dict = try self.viewModel.prepareMediaForUpload(url: url)
+                } catch {
+                    print(NSError(domain: "prepareMediaForUpload", code: 1))
+                }
 
-                let dict = self.viewModel.prepareMediaForUpload(url: url)
                 let fileName = dict["fileName"] as! String
                 let fileExtension = dict["fileExtension"] as! String
                 let imageData = dict["fileData"] as! Data
@@ -444,7 +442,15 @@ extension DropboxController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         print(urls)
         urls.forEach { url in
-            let dict = self.viewModel.prepareMediaForUpload(url: url)
+            
+            var dict = [:]
+            
+            do {
+                dict = try self.viewModel.prepareMediaForUpload(url: url)
+            } catch {
+                print(NSError(domain: "prepareMediaForUpload", code: 1))
+            }
+            
             let fileName = dict["fileName"] as! String
             let fileExtension = dict["fileExtension"] as! String
             let fileData = dict["fileData"] as! Data

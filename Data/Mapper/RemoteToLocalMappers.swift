@@ -35,17 +35,15 @@ extension DropboxInfoRemoteDTO {
 
 extension GoogleDriveFileRemoteDTO {
     func toLocal(folderID: String) -> GoogleDriveFileLocalDTO {
-        let dto = GoogleDriveFileLocalDTO()
-        dto.setData(identifier: self.identifier,
-                    folderID: folderID,
-                    name: self.name,
-                    mimeType: self.mimeType,
-                    trashed: self.trashed,
-                    starred: self.starred,
-                    shared: self.shared,
-                    webContentLink: self.webContentLink,
-                    permission: GoogleDrivePermissionLocalDTO.init(type: self.permission.type, role: self.permission.role),
-                    lastModified: self.lastModified)
-        return dto
+        return GoogleDriveFileLocalDTO(identifier: self.identifier,
+                                       folderID: folderID,
+                                       name: self.name,
+                                       mimeType: self.mimeType,
+                                       trashed: self.trashed,
+                                       starred: self.starred,
+                                       shared: self.shared,
+                                       webContentLink: self.webContentLink,
+                                       permission: GoogleDrivePermissionLocalDTO.init(type: self.permission.type, role: self.permission.role),
+                                       lastModified: self.lastModified)
     }
 }

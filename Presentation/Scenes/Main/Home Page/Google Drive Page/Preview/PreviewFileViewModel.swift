@@ -39,7 +39,17 @@ public class PreviewFileViewModel {
         
         print(file.mimeType.toFileExtension)
         
-        let documentsURL: URL = try! manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        lazy var documentsURL: URL = {
+            var url = URL(fileURLWithPath: "")
+            
+            do {
+                url = try manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            } catch {
+                print(NSError(domain: "documentsURL", code: 1))
+            }
+            
+            return url
+        }()
         
         let downloadedDocumentsPath: URL = documentsURL.appendingPathComponent(".downloaded_files")
         

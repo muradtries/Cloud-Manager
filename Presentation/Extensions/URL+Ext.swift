@@ -10,13 +10,13 @@ import Foundation
 extension URL {
     func getFiles() throws -> [URL] {
         guard hasDirectoryPath else { return [] }
-        return try! FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: nil)
+        return try FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: nil)
             .filter(\.isFileURL)
     }
     
     func subDirectories() throws -> [URL] {
         guard hasDirectoryPath else { return [] }
-        return try! FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: nil)
+        return try FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: nil)
             .filter(\.hasDirectoryPath)
     }
     

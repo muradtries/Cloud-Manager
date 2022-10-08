@@ -587,8 +587,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Dropbox Page/Files/List/DropboxController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "didSelectFromDocuments()"
             landmarkType = "7">
          </BreakpointContent>
@@ -843,8 +843,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "syncFiles()"
             landmarkType = "7">
             <Locations>
@@ -891,8 +891,8 @@
             filePath = "Presentation/Scenes/Main/Home Page/Google Drive Page/Files/List/GoogleDriveViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "observeFiles()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1019,8 +1019,8 @@
             filePath = "Data/Remote Data Source/Google Drive/GoogleDriveFileRemoteDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "fetchFiles(in:)"
             landmarkType = "7">
          </BreakpointContent>

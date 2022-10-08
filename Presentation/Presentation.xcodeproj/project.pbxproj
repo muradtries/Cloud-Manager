@@ -27,7 +27,7 @@
 		FA3001B828D1C91B005BE124 /* UISheetPresentationControllerDetent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3001B728D1C91B005BE124 /* UISheetPresentationControllerDetent+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA3001C928D3934B005BE124 /* IconLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001C828D3934B005BE124 /* IconLabelTableViewCell.swift */; };
 		FA3001CE28D39EDC005BE124 /* PickerOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001CD28D39EDC005BE124 /* PickerOptionsViewModel.swift */; };
-		FA3001D028D3A7AA005BE124 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001CF28D3A7AA005BE124 /* Option.swift */; };
+		FA3001D028D3A7AA005BE124 /* PickerOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001CF28D3A7AA005BE124 /* PickerOptionsModel.swift */; };
 		FA3001D328D3DA09005BE124 /* MoreOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001D228D3DA09005BE124 /* MoreOptionsController.swift */; };
 		FA3001D528D3DAB0005BE124 /* MoreOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3001D428D3DAB0005BE124 /* MoreOptionsViewModel.swift */; };
 		FA3426DD28CCA480005BE18F /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3426DC28CCA480005BE18F /* URL+Ext.swift */; };
@@ -93,6 +93,7 @@
 		FAA7FF1528DE46E30053FD0A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7FF1428DE46E30053FD0A /* String+Ext.swift */; };
 		FAB6F67028CD3E53004AB524 /* PreviewFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6F66F28CD3E53004AB524 /* PreviewFileController.swift */; };
 		FAB6F67228CE27F6004AB524 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6F67128CE27F6004AB524 /* UIImageView+Ext.swift */; };
+		FAE79AD328F1EFAF00F06E18 /* ManageAccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE79AD228F1EFAF00F06E18 /* ManageAccessModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +140,7 @@
 		FA3001B728D1C91B005BE124 /* UISheetPresentationControllerDetent+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISheetPresentationControllerDetent+Private.h"; sourceTree = "<group>"; };
 		FA3001C828D3934B005BE124 /* IconLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelTableViewCell.swift; sourceTree = "<group>"; };
 		FA3001CD28D39EDC005BE124 /* PickerOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerOptionsViewModel.swift; sourceTree = "<group>"; };
-		FA3001CF28D3A7AA005BE124 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		FA3001CF28D3A7AA005BE124 /* PickerOptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerOptionsModel.swift; sourceTree = "<group>"; };
 		FA3001D228D3DA09005BE124 /* MoreOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsController.swift; sourceTree = "<group>"; };
 		FA3001D428D3DAB0005BE124 /* MoreOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsViewModel.swift; sourceTree = "<group>"; };
 		FA3426DC28CCA480005BE18F /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
@@ -205,6 +206,7 @@
 		FAA7FF1428DE46E30053FD0A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		FAB6F66F28CD3E53004AB524 /* PreviewFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewFileController.swift; sourceTree = "<group>"; };
 		FAB6F67128CE27F6004AB524 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		FAE79AD228F1EFAF00F06E18 /* ManageAccessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccessModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,7 +353,7 @@
 			children = (
 				2EEFF36C28D0D48E00E62A09 /* PickerOptionsController.swift */,
 				FA3001CD28D39EDC005BE124 /* PickerOptionsViewModel.swift */,
-				FA3001CF28D3A7AA005BE124 /* Option.swift */,
+				FA3001CF28D3A7AA005BE124 /* PickerOptionsModel.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -467,6 +469,7 @@
 		FA762CD828D540520051BEC3 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				FAE79AD228F1EFAF00F06E18 /* ManageAccessModel.swift */,
 				FA762CDA28D540BA0051BEC3 /* ManageAccessPopUpController.swift */,
 				FA762CF128D7BC420051BEC3 /* ManageAccessViewModel.swift */,
 			);
@@ -754,12 +757,13 @@
 				FA4B475F28E2ED520044FA32 /* UIView+Ext.swift in Sources */,
 				FAB6F67228CE27F6004AB524 /* UIImageView+Ext.swift in Sources */,
 				FAB6F67028CD3E53004AB524 /* PreviewFileController.swift in Sources */,
+				FAE79AD328F1EFAF00F06E18 /* ManageAccessModel.swift in Sources */,
 				FA762CF028D7AF1B0051BEC3 /* TopPopUpAlert.swift in Sources */,
 				FA045E8E28BF527D00A90DAA /* HomePageCoordinator.swift in Sources */,
 				FA4B477128E42FE00044FA32 /* ConnectServiceView.swift in Sources */,
 				FA381B2F28C7482700173499 /* SettingsPageCoordinator.swift in Sources */,
 				FAA3DABC28BE00BC00F17548 /* HomePageController.swift in Sources */,
-				FA3001D028D3A7AA005BE124 /* Option.swift in Sources */,
+				FA3001D028D3A7AA005BE124 /* PickerOptionsModel.swift in Sources */,
 				FA045EB328C0A61E00A90DAA /* BaseViewController.swift in Sources */,
 				FA381BA628CBA02B00173499 /* Fonts+Generated.swift in Sources */,
 				FA762CD528D4E5DA0051BEC3 /* RenamePopUpController.swift in Sources */,

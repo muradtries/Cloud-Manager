@@ -28,7 +28,7 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
                                                                             permission: .init(type: "", role: .commenter), lastModified: Date())
     private var selectedFileIndexPath: IndexPath?
     private var selectedFileIndexPathRow: Int?
-    private var observable: Observable<UploadProgressEntity>?
+    private var observableProgress: Observable<UploadProgressEntity>?
     
     private lazy var filesAndFoldersList: [[GoogleDriveFileEntity]] = [[],[]] {
         didSet {
@@ -71,7 +71,7 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
     private lazy var disclaimerImage: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         
-        view.image = Asset.Media.emptyFolder.image.resizedImage(Size: CGSize(width: 300, height: 300))
+        view.image = Asset.Media.emptyFolder.image.resizedImage(size: CGSize(width: 300, height: 300))
         view.contentMode = .scaleAspectFill
         
         return view
@@ -251,7 +251,7 @@ class GoogleDriveController: BaseViewController<GoogleDriveViewModel> {
             self.viewModel.syncFiles()
         }
         
-        self.observable = observable
+        self.observableProgress = observable
         
         let uploadSubscription = observable
             .subscribe { receivedProgress in
@@ -311,7 +311,7 @@ extension GoogleDriveController: MoreOptionsDelegate {
         popUpVC.modalPresentationStyle = .overFullScreen
         popUpVC.modalTransitionStyle = .crossDissolve
         print("SELECTED FILE NAME: \(self.selectedFile.name)")
-        let isFolder = selectedFile.mimeType.toFileExtension.isEmpty ? true: false
+        let isFolder = selectedFile.mimeType.toFileExtension.isEmpty
         popUpVC.putCurrentNameIntoField(name: self.selectedFile.name, isFolder: isFolder)
         self.present(popUpVC, animated: true)
     }
@@ -395,25 +395,14 @@ extension GoogleDriveController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+        if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(FileListTableViewCell.self)", for: indexPath) as! FileListTableViewCell
             cell.setupCell(file: filesAndFoldersList[indexPath.section][indexPath.row], state: .uploading)
             cell.backgroundColor = .clear
             cell.delegate = self
             cell.isUserInteractionEnabled = false
             return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(FileListTableViewCell.self)", for: indexPath) as! FileListTableViewCell
-            cell.setupCell(file: filesAndFoldersList[indexPath.section][indexPath.row])
-            cell.backgroundColor = .clear
-            cell.delegate = self
-            cell.isUserInteractionEnabled = true
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = .lightGray.withAlphaComponent(0.1)
-            cell.selectedBackgroundView = bgColorView
-            return cell
-        default:
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(FileListTableViewCell.self)") as! FileListTableViewCell
             cell.setupCell(file: filesAndFoldersList[indexPath.section][indexPath.row])
             cell.backgroundColor = .clear
@@ -429,12 +418,11 @@ extension GoogleDriveController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.syncFlag = false
         
-        switch indexPath.section {
-        case 1:
+        if indexPath.section == 1 {
             switch filesAndFoldersList[indexPath.section][indexPath.row].mimeType {
             case .folder:
                 viewModel.goToFolderVC(folderID: filesAndFoldersList[indexPath.section][indexPath.row].identifier,
-                                             fileName: filesAndFoldersList[indexPath.section][indexPath.row].name)
+                                       fileName: filesAndFoldersList[indexPath.section][indexPath.row].name)
                 tableView.deselectRow(at: indexPath, animated: true)
             case .image:
                 viewModel.goToPreviewImage(file: filesAndFoldersList[indexPath.section][indexPath.row])
@@ -442,7 +430,7 @@ extension GoogleDriveController: UITableViewDelegate, UITableViewDataSource {
                 tableView.deselectRow(at: indexPath, animated: true)
                 viewModel.goToPreviewFileVC(file: filesAndFoldersList[indexPath.section][indexPath.row])
             }
-        default:
+        } else {
             return
         }
     }
@@ -462,7 +450,13 @@ extension GoogleDriveController: PHPickerViewControllerDelegate {
                     return
                 }
                 
-                let dict = self.viewModel.prepareMediaForUpload(url: url)
+                var dict = [:]
+                
+                do {
+                    dict = try self.viewModel.prepareMediaForUpload(url: url)
+                } catch {
+                    print(NSError(domain: "prepareMediaForUpload", code: 1))
+                }
                 let fileName = dict["fileName"] as! String
                 let fileExtension = dict["fileExtension"] as! String
                 let imageData = dict["fileData"] as! Data
@@ -482,7 +476,15 @@ extension GoogleDriveController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         print(urls)
         urls.forEach { url in
-            let dict = self.viewModel.prepareMediaForUpload(url: url)
+            
+            var dict = [:]
+            
+            do {
+                dict = try self.viewModel.prepareMediaForUpload(url: url)
+            } catch {
+                print(NSError(domain: "prepareMediaForUpload", code: 1))
+            }
+            
             let fileName = dict["fileName"] as! String
             let fileExtension = dict["fileExtension"] as! String
             let fileData = dict["fileData"] as! Data

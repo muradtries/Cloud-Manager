@@ -41,8 +41,15 @@ public class GoogleDriveViewModel {
     
     lazy var downloadedFilesURLs: [URL] = {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let downloadedImagesPath = try! documentsURL.subDirectories()[0]
-        return try! downloadedImagesPath.getFiles()
+        var filesPath: [URL] = []
+        
+        do {
+            let downloadedImagesPath = try documentsURL.subDirectories()[0]
+            filesPath = try downloadedImagesPath.getFiles()
+        } catch {
+            print(NSError(domain: "downloadedFilesURLs", code: 1))
+        }
+        return filesPath
     }()
     
     init(observeGoogleDriveFilesUseCase: ObserveGoogleDriveFilesUseCase,
@@ -143,13 +150,13 @@ public class GoogleDriveViewModel {
 }
 
 extension GoogleDriveViewModel {
-    func prepareMediaForUpload(url: URL) -> [String: Any] {
+    func prepareMediaForUpload(url: URL) throws -> [String: Any] {
         var dict: [String: Any] = [:]
         
         dict["fileName"] = url.lastPathComponent
         dict["fileExtension"] = url.pathExtension
         let _ = url.startAccessingSecurityScopedResource()
-        dict["fileData"] = try! Data(contentsOf: url)
+        dict["fileData"] = try Data(contentsOf: url)
         let _ = url.startAccessingSecurityScopedResource()
         
         return dict

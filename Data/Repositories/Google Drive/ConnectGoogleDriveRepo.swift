@@ -23,7 +23,7 @@ class ConnectGoogleDriveRepo: ConnectGoogleDriveRepoProtocol {
     func signIn(presenting: UIViewController) -> Promise<Void> {
         let promise = Promise<Void>.pending()
         
-        let driveScope: [String] = ["https://www.googleapis.com/auth/drive"]
+        let driveScope: [String] = Configuration().getGoogleDriveScopes
         
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: presenting, hint: "", additionalScopes: driveScope) { user, error in
             if let error = error {

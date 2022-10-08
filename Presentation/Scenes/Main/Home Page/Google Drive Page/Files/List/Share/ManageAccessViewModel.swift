@@ -9,11 +9,6 @@ import Foundation
 import Promises
 import Domain
 
-enum ScopeOption {
-    case restricted
-    case anyoneWithLink(EPermissionRole)
-}
-
 protocol ManageAccessPopUpControllerDelegate: AnyObject {
     func didFinishedManagingAccess()
 }
@@ -42,7 +37,7 @@ class ManageAccessViewModel {
         alert.show(viewController: viewController)
     }
     
-    func didFinishedEditingOptions(role: ScopeOption) -> Promise<Void> {
+    func didFinishedEditingOptions(role: AccessOptions) -> Promise<Void> {
         switch role {
         case .restricted:
             return removeAccessToFileUseCase.removeAccessToFile(with: file!.identifier)

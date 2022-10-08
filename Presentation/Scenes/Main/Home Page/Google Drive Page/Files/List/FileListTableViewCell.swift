@@ -69,7 +69,7 @@ class FileListTableViewCell: UITableViewCell {
     private lazy var starIcon: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 12, height: 12))
         
-        view.image = Asset.Icons.icStarFilled.image.resizedImage(Size: CGSize(width: 12, height: 12))?.withTintColor(.lightGray).withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: -2, right: 0))
+        view.image = Asset.Icons.icStarFilled.image.resizedImage(size: CGSize(width: 12, height: 12))?.withTintColor(.lightGray).withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: -2, right: 0))
         view.contentMode = .center
         
         return view

@@ -25,8 +25,10 @@ public class BaseViewController<VM: AnyObject>: UIViewController {
     }
     
     func setupUI() {
+        // will be implemented in child classes
     }
     
     func setupNavBar() {
+        // will be implemented in child classes
     }
 }
